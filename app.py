@@ -1,8 +1,10 @@
 import os
 from flask import Flask, render_template, url_for, request, session, redirect
-from flask.ext.pymongo import PyMongo
+from flask_pymongo import PyMongo
 import bcrypt
-
+from os import path
+if path.exists("env.py"): 
+    import env
 
 app = Flask(__name__)
 
