@@ -11,7 +11,6 @@ app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'paw_purfect_planner'
 app.config['MONGO_URI'] = os.environ['MONGO_URI']
-app.secret_key = os.getenv("SECRET")
 
 
 mongo = PyMongo(app)
