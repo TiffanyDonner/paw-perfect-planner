@@ -27,6 +27,11 @@ def index():
 
     return render_template('index.html')
 
+@app.route('/get_events')
+def get_events():
+    return render_template("events.html", 
+                           events=mongo.db.events.find())
+
 @app.route('/userprofile')
 def userprofile():
     
@@ -46,7 +51,7 @@ def existinguser():
 def login():
     if request.method == 'POST':
         username = request.form['username']
-        login_user = mongo.db.users.find_one({'name': username})
+        login_user = mongo.db.users.find_one({'username': username})
         
         if login_user:
             if bcrypt.hashpw(
@@ -61,11 +66,11 @@ def login():
 def register():
     if request.method == 'POST':
         users = mongo.db.users
-        existing_user = users.find_one({'name' : request.form['username']})
+        existing_user = users.find_one({'username' : request.form['username']})
 
         if existing_user is None:
             hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
-            users.insert({'name' : request.form['username'], 'password' : hashpass})
+            users.insert({'username' : request.form['username'], 'password' : hashpass})
             session['username'] = request.form['username']
             return redirect(url_for('userprofile'))
         
