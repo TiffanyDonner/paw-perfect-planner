@@ -1,4 +1,17 @@
 body {
-    background-color: #81919F;
     color:#4B2A14;
+}
+
+.container {
+    max-width: 400px;
+    background-color: #647A8D;
+}
+
+.navbar {
+    background-color: #4B2A14;
+    color: #fff;
+}
+
+.navbar-brand {
+    color: #fff;
 }
