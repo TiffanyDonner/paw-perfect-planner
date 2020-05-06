@@ -34,8 +34,10 @@ def get_events():
 
 @app.route('/add_event')
 def add_event():
-    return render_template('addevent.html',
-                           categories=mongo.db.categories.find())
+    if 'username' in session:
+        return render_template('addevent.html',
+                            categories=mongo.db.categories.find())
+    return render_template('index.html')
 
 @app.route('/insert_event', methods=['POST'])
 def insert_event():
