@@ -32,7 +32,7 @@ def get_events():
     return render_template("events.html", 
                            events=mongo.db.events.find())
 
-@app.route('/add_event')
+@app.route('/add_event', methods=['POST', 'GET'])
 def add_event():
     if 'username' in session:
         return render_template('addevent.html',

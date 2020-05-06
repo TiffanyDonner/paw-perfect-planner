@@ -3,13 +3,19 @@ body {
     background-color: #647A8D;
 }
 
-.navbar {
+.nav-wrapper {
     background-color: #4B2A14;
     color: #fff;
+    padding-left: 15px;
 }
 
 .navbar-brand {
     color: #fff;
+}
+
+a.brand-logo {
+    font-size: 25px;
+}
 }
 
 .btn_small {
