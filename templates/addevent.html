@@ -1,11 +1,20 @@
-{% extends 'base.html' %} 
-{% block body %}
+{% extends 'layoutpage.html' %} 
+{% block page %}
 <!-- CONTAINER START -->
 <div class="container">
     <h3>Add Event</h3>
     <div class="row">
         <form action="{{ url_for('insert_event') }}" method="POST"  class="col s12">
-            
+            <div class="row">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <data id="owner" name="owner">
+                        {% for owner in owners %}
+                            <option value="{{owner.username}}">{{owner.username}}</option>
+                        {% endfor %}
+                        </data>
+                    </div>
+                </div>
             <div class="row">
                 <div class="row">
                     <div class="input-field col s12">
@@ -56,5 +65,14 @@
         </form>
     </div>
 </div>
-
+<script type="text/javascript">
+    $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15, // Creates a dropdown of 15 years to control year,
+            today: 'Today',
+            clear: 'Clear',
+            close: 'Ok',
+            closeOnSelect: false // Close upon selecting a date,
+        });
+</script>
 {% endblock %}

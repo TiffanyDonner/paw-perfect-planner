@@ -35,9 +35,10 @@ def get_events():
 
 @app.route('/add_event', methods=['POST', 'GET'])
 def add_event():
+    user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
     if 'username' in session:
-        return render_template('addevent.html',
-                            categories=mongo.db.categories.find())
+        return render_template('addevent.html', 
+                                categories=mongo.db.categories.find(), user=user)
     return render_template('index.html')
 
 @app.route('/insert_event', methods=['POST'])
@@ -150,6 +151,8 @@ def login():
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
+    """ If username already exists renders login.html,
+    if does not exist, renders register.html """
     if request.method == 'POST':
         users = mongo.db.users
         existing_user = users.find_one({'username' : request.form['username']})
@@ -158,7 +161,7 @@ def register():
             hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
             users.insert({'username' : request.form['username'], 'password' : hashpass})
             session['username'] = request.form['username']
-            return redirect(url_for('userprofile'))
+            return render_template('userprofile.html')
         
         return render_template('existinguser.html')
 

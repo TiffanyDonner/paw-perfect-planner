@@ -1,20 +1,24 @@
-{% extends "base.html" %}
-{% block body %}
+{% extends "layoutuser.html" %}
+{% block user %}
+
     <!-- USERNAME ROW START -->
     <div class="username-greetings row">
         <div class="col-4">
             <h5>Hi! {{ session['username'] }}</h5>
         </div>
     </div>
-    <!-- USERNAME ROW END -->
+
+    <!-- PET ROW START -->
     <div class="pet-greetings row">
-        <div class="col-4">
-            <p>{% for pet in pets %}
-                <div value="{{pet.pet_name}}">{{pet.pet_name}}</div>
-                {% endfor %}
-            </p>
-        </div>
+        <a class="waves-effect waves-light btn" href="{{ url_for('get_pets') }}">
+            {% for pet in pets %}<div value="{{pet.pet_name}}">{{pet.pet_name}}</div>{% endfor %}
+            <input placeholder="+ New Pet">
+        </a>
+        <a class="waves-effect waves-light btn" href="{{ url_for('add_event') }}">+ New Event</a>
+        <a class="waves-effect waves-light btn" href="{{ url_for('get_events') }}">History</a>
     </div>
+        
+    <!-- EVENTS ROW START -->
     <div class="events-greetings row">
         <div class="row">
             <ul class="collapsible" data-collapsible="accordion">
@@ -42,17 +46,6 @@
             </ul>
         </div>
     </div>
-  
-    
-
-    <!-- PROFILE DETAILS ROW START -->
-    <a href="{{url_for('add_event')}}">Add Event</a>
-    <a href="{{url_for('get_events')}}">Get events</a>
-    <p>
-    <a href="{{url_for('end_session')}}">Logout</a>
-    </p>
-
-
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

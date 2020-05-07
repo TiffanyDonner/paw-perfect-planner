@@ -1,30 +1,59 @@
+/** Base Elements **/
 body {
     color:#4B2A14;
-    background-color: #9596a0;
+    background-color: rgb(240, 232, 232);
     font-family: 'Open Sans', sans-serif;
 }
 
 h1, h2, h3, h4, h5 {
-    color: #ffffff;
+    color: #4B2A14;
     font-family: 'Delius', cursive;
 }
 
+/** Navbar Elements **/
 .nav-wrapper {
-    background-color: #4B2A14;
-    color: #fff;
+    background-color: #fff;
+    color: #4B2A14;
     padding-left: 15px;
 }
 
+nav a {
+    color: #4B2A14;
+}
+
+nav ul a {
+   color: #4B2A14; 
+}
+
 .navbar-brand {
-    color: #fff;
+    
 }
 
 a.brand-logo {
     font-size: 25px;
     font-family: 'Delius', cursive;
+    color: #4B2A14;
 }
 
+/** Hero Elements **/
+.parallax-container {
+      height: 300px;
+    }
 
+/** Container Elements **/
+.container {
+    padding: 30px;
+}
+
+.username-greetings {
+    margin-top: 25px;
+    padding-left: 25px;
+}
+
+/** Buttons Elements **/
+.btn, .btn-large {
+    margin: 10px;
+}
 
 .btn_small {
     height: 24px;
@@ -34,10 +63,8 @@ a.brand-logo {
     padding: 0 0.5em;
 }
 
+/** Page Elements **/
 .event_header {
     margin-top: 5px;
 }
 
-.parallax-container {
-      height: 300px;
-    }
