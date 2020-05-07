@@ -8,7 +8,9 @@
                 <div class="user-input row">
                     <div class="input-field col s12">
                         <data id="owner" name="owner">
-                            {% for user in users %}<div value="{{user.username}}">{{user.owner}}</div>{% endfor %}
+                            {% for user in users %}
+                            <div value="{{user.username}}">{{user.owner}}</div>
+                            {% endfor %}
                         </data>
                     </div>
                 </div>

@@ -35,16 +35,18 @@ def get_events():
 
 @app.route('/add_event', methods=['POST', 'GET'])
 def add_event():
-    user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
+    """*user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})"""
     if 'username' in session:
         return render_template('addevent.html', 
-                                categories=mongo.db.categories.find(), user=user)
+                                categories=mongo.db.categories.find(), user=session['username'])
     return render_template('index.html')
 
 @app.route('/insert_event', methods=['POST'])
 def insert_event():
     events =  mongo.db.events
-    events.insert_one(request.form.to_dict())
+    event_data = request.form.to_dict()
+    event_data['username'] = session['username']
+    events.insert_one(event_data)
     return redirect(url_for('get_events'))
 
 @app.route('/edit_event/<event_id>')
@@ -162,8 +164,10 @@ def register():
 
         if existing_user is None:
             hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
-            users.insert({'username' : request.form['username'], 'password' : hashpass})
+            inserted_user = users.insert_one({'username' : request.form['username'], 'password' : hashpass})
             session['username'] = request.form['username']
+            session['username_id'] = str(inserted_user.inserted_id)
+            print (session['username_id'])
             return render_template('userprofile.html')
         
         return render_template('existinguser.html')

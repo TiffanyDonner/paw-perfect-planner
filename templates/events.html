@@ -1,6 +1,8 @@
 {% extends "layoutpage.html" %}
 {% block page %}
-
+<div class="add-pet row">
+    <a class="waves-effect waves-light btn" href="{{ url_for('add_event') }}">+ New Event</a>
+</div>
 <div class="row">
     <ul class="collapsible" data-collapsible="accordion">
         {% for event in events %}

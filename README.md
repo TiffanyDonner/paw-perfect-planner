@@ -9,12 +9,10 @@ What did the Vet say the last time we were there? This is something we often say
     - [User stories](#User-stories)
     - [Future Updates](#Admin-stories)
 4. [Design and colors](#Design-and-colors)    
-5. [Wireframes](#Wireframes)
-6. [Features](#Features)
-7. [Technology Used](#Technology-Used)
-8. [Testing](#Testing)
-9. [Credits](#Credits)
-10. [DEPLOYMENT](#DEPLOYMENT)
+5. [Technology Used](#Technology-Used)
+6. [Testing](#Testing)
+7. [Credits](#Credits)
+8. [DEPLOYMENT](#DEPLOYMENT)
 
 ## Demo
 A live demo of the website can be found [here](https://paw-purfect-planner.herokuapp.com/).
@@ -25,8 +23,8 @@ To build a CRUD (Create, Read, Update, Delete) application using HTML, CSS, Java
 ## UX
 
 #### Wireframes and Database Design
-Wireframes [XD Share Link](https://xd.adobe.com/view/202021a4-b5e4-4aa5-77a7-936194d5fdf4-5611/?fullscreen&hints=off)
-Database design [XD Share Link](https://xd.adobe.com/view/202021a4-b5e4-4aa5-77a7-936194d5fdf4-5611/?fullscreen&hints=off)
+- Wireframes [XD Share Link](https://xd.adobe.com/view/202021a4-b5e4-4aa5-77a7-936194d5fdf4-5611/?fullscreen&hints=off)
+- Database design [XD Share Link](https://xd.adobe.com/view/202021a4-b5e4-4aa5-77a7-936194d5fdf4-5611/?fullscreen&hints=off)
 
 ### User-stories
 #### SOFIA AND BELLA
@@ -56,10 +54,6 @@ This is an ongoing project and will go live later in 2020.
 
 #### Future of 🐾Paw Purfect Planner
 Demonstration of what Paw Putfect Planner will look like in the future [XD Share Link](https://xd.adobe.com/view/202021a4-b5e4-4aa5-77a7-936194d5fdf4-5611/?fullscreen&hints=off)
-
-## Design-and-colors
-
-## Wireframes
 
 ## Features
 

@@ -5,14 +5,7 @@
     <h3>Add Pet</h3>
     <div class="row">
         <form action="{{ url_for('insert_pet') }}" method="POST"  class="col s12">
-            <div class="row">
-                <div class="user-input row">
-                    <div class="input-field col s12">
-                        <data id="owner" name="owner">
-                            {% for user in users %}<div value="{{user.username}}">{{user.owner}}</div>{% endfor %}
-                        </data>
-                    </div>
-                </div>
+            
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">assignment</i>
