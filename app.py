@@ -29,8 +29,9 @@ def index():
 
 @app.route('/get_events')
 def get_events():
-    return render_template("events.html", 
-                           events=mongo.db.events.find())
+    user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
+    events = mongo.db.events.find({'owner': user['username']})
+    return render_template("events.html", events=events)
 
 @app.route('/add_event', methods=['POST', 'GET'])
 def add_event():
@@ -70,10 +71,56 @@ def delete_event(event_id):
     mongo.db.events.remove({'_id': ObjectId(event_id)})
     return redirect(url_for('get_events'))
 
+@app.route('/get_pets')
+def get_pets():
+    return render_template("pets.html", 
+                           pets=mongo.db.pets.find())
+
+@app.route('/add_pet', methods=['POST', 'GET'])
+def add_pet():
+    if 'username' in session:
+        return render_template('addpet.html',
+                            users=mongo.db.users.find())
+    return render_template('index.html')
+
+@app.route('/insert_pet', methods=['POST'])
+def insert_pet():
+    pets =  mongo.db.pets
+    pets.insert_one(request.form.to_dict())
+    return redirect(url_for('get_pets'))
+
+@app.route('/edit_pet/<pet_id>')
+def edit_pet(pet_id):
+    the_pet =  mongo.db.pets.find_one({"_id": ObjectId(pet_id)})
+    all_users =  mongo.db.users.find()
+    return render_template('editpet.html', pet=the_pet,
+                           pets=all_pets)
+
+@app.route('/update_pet/<pet_id>', methods=["POST"])
+def update_pet(pet_id):
+    pets = mongo.db.pets
+    pets.update( {'_id': ObjectId(pet_id)},
+    {
+        'pet_name':request.form.get('pet_name'),
+        'pet_type':request.form.get('pet_type'),
+        'gender': request.form.get('gender'),
+        'pet_breed': request.form.get('pet_breed'),
+        'birth_date':request.form.get('birth_date')
+    })
+    return redirect(url_for('get_pets'))
+
+@app.route('/delete_pet/<pet_id>')
+def delete_pet(pet_id):
+    mongo.db.pets.remove({'_id': ObjectId(pet_id)})
+    return redirect(url_for('get_pets'))
+
 @app.route('/userprofile')
 def userprofile():
-    
-    return render_template("userprofile.html")
+    user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
+    pets = mongo.db.pet_profile.find({'owner': user['username']})
+    user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
+    events = mongo.db.events.find({'owner': user['username']})
+    return render_template("userprofile.html", pets=pets, events=events)
 
 @app.route('/invaliduser')
 def invaliduser():
@@ -96,6 +143,7 @@ def login():
                     request.form['pass'].encode('utf-8'),
                     login_user['password']):
                 session['username'] = request.form.to_dict()['username']
+                session['username_id'] = str(login_user['_id'])
                 return redirect(url_for('userprofile'))
             
         return redirect(url_for('invaliduser'))

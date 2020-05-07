@@ -10,6 +10,9 @@
     <!-- Materialize CSS -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
 
@@ -31,6 +34,9 @@
                 </ul>
             </div>
         </nav>
+        <div class="parallax-container">
+      <div class="parallax"><img src="static/images/dog-cat.jpg"></div>
+</div>
     </header>
     
     <div class="container">
@@ -54,6 +60,9 @@
             clear: 'Clear',
             close: 'Ok',
             closeOnSelect: false // Close upon selecting a date,
+        });
+        $(document).ready(function(){
+        $('.parallax').parallax();
         });
     </script>
 </body>

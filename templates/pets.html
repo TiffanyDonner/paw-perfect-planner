@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div class="row">
+    <ul class="collapsible" data-collapsible="accordion">
+        {% for pet in pets %}
+        <li>
+            <div class="collapsible-header">
+                <div class="col s3">
+                    <i class="material-icons">expand_more</i>
+                    <a href="{{url_for('edit_pet', pet_id=pet._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>
+                    
+                </div>
+                <div class=" event_header col s9">
+                    <strong>{{pet.pet_name}}</strong> - {{pet.birth_date}}
+                </div>
+            </div>
+            <div class="collapsible-body">
+                <span>
+                    {{pet.pet_breed}} 
+                </span>
+            </div>
+        </li>
+        {% endfor %}
+
+    </ul>
+</div>
+
+{% endblock %}
