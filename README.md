@@ -1,11 +1,9 @@
 ![Paw Purfect Site Header Image](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/images/readme/header-readme.PNG)
-# Paw Purfect Planner
-![Paw Purfect Site Header Image](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/images/readme/header-readme.PNG)
 # 🐾Paw Purfect Planner
 What did the Vet say the last time we were there? This is something we often say as pet owners. Paw Purfect Planner is a simple web application that gives you everything you need to maintain your pet records and events.
 ## Table of Contents
 
-1. [Summary](#Summary)
+1. [Demo](#Demo)
 2. [Project purpose](#Project-purpose)
 3. [UX](#ux)
     - [User stories](#User-stories)
@@ -19,28 +17,33 @@ What did the Vet say the last time we were there? This is something we often say
 10. [DEPLOYMENT](#DEPLOYMENT)
 11. [Disclaimer](#Disclaimer)
 
-# Summary
+## Demo
+A live demo of the website can be found [here](https://codei-cook-book.herokuapp.com/).
 
-# Project-purpose
+## Project-purpose
 
-# UX
+## UX
 
-## User-stories
+### User-stories
 
-## Admin-stories
+### Admin-stories
 
-# Design-and-colors
+## Design-and-colors
 
-# Wireframes
+## Wireframes
 
-# Features
+## Features
 
-# Technology-Used
+## Technology-Used
 
-# Testing
+## Testing
+| Page  | Form Function | Link Testing | Notes |
+| ------------- | ------------- |------------- |------------- |
+| index.html  | ✔️Login | ✔️Navbar links ✔️Page Links | User is able to login and register sucessfully.
+| userprofile.html  | NA  | ✔️Navbar links ✔️Page Links | ❌Edit ❌Add
 
-# Credits
+## Credits
 
-# DEPLOYMENT
+## DEPLOYMENT
 
-# Disclaimer
+## Disclaimer

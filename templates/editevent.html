@@ -42,6 +42,13 @@
             </div>
         </div>
         <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                <textarea name="event_notes" id="event_notes" class="materialize-textarea">{{event.event_notes}}</textarea>
+                <label for="icon_telephone">Event Notes</label>
+            </div>
+        </div>
+        <div class="row">
             <div class="switch">
                 <label>
                     {% if event.is_urgent %}

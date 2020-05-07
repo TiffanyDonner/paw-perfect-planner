@@ -15,7 +15,6 @@
             <input placeholder="+ New Pet">
         </a>
         <a class="waves-effect waves-light btn" href="{{ url_for('add_event') }}">+ New Event</a>
-        <a class="waves-effect waves-light btn" href="{{ url_for('get_events') }}">History</a>
     </div>
         
     <!-- EVENTS ROW START -->
@@ -27,8 +26,7 @@
                     <div class="collapsible-header">
                         <div class="col s3">
                             <i class="material-icons">expand_more</i>
-                            <a href="{{url_for('delete_event', event_id=event._id)}}" class="waves-effect waves-light btn btn_small">Done</a>
-                            <a href="{{url_for('edit_event', event_id=event._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>
+                                <a href="{{url_for('edit_event', event_id=event._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>
                         
                         </div>
                         <div class=" event_header col s9">
@@ -37,7 +35,9 @@
                     </div>
                     <div class="collapsible-body">
                         <span>
-                            {{event.event_description}} 
+                            <p>Description: {{event.event_description}}</p>
+                            <p>Notes: {{event.event_notes}}</p>
+                            <a href="{{url_for('delete_event', event_id=event._id)}}" class="waves-effect waves-light btn btn_small">Delete Record</a>
                         </span>
                     </div>
                 </li>
@@ -47,26 +47,5 @@
         </div>
     </div>
 
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.collapsible').collapsible();
-            $('select').material_select();
-            $(".button-collapse").sideNav();
-        });
 
-        $('.datepicker').pickadate({
-            selectMonths: true, // Creates a dropdown to control month
-            selectYears: 15, // Creates a dropdown of 15 years to control year,
-            today: 'Today',
-            clear: 'Clear',
-            close: 'Ok',
-            closeOnSelect: false // Close upon selecting a date,
-        });
-        $(document).ready(function(){
-        $('.parallax').parallax();
-        });
-    </script>
 {% endblock %}

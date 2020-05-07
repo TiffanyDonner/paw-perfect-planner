@@ -22,15 +22,15 @@
     <header>
         <nav>
             <div class="nav-wrapper">
-                <a href="{{url_for('userprofile')}}" class="brand-logo">🐾Paw Purfect</a>
+                <a href="{{url_for('index')}}" class="brand-logo">🐾Paw Purfect</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="{{url_for('userprofile')}}">HOME</a></li>
+                    <li><a href="{{url_for('index')}}">HOME</a></li>
                     <li><a href="{{url_for('add_event')}}">+ NEW EVENT</a></li>
                     <li><a href="{{url_for('end_session')}}">LOG OUT</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <li><a href="{{url_for('get_events')}}">HOME</a></li>
+                    <li><a href="{{url_for('index')}}">HOME</a></li>
                     <li><a href="{{url_for('add_event')}}">+ NEW EVENT</a></li>
                     <li><a href="{{url_for('end_session')}}">LOG OUT</a></li>
                 </ul>

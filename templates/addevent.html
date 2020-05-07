@@ -49,6 +49,13 @@
                 </div>
             </div>
             <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">subject</i>
+                    <textarea name="event_notes" id="event_notes" class="materialize-textarea"></textarea>
+                    <label for="icon_telephone">Event Notes</label>
+                </div>
+            </div>
+            <div class="row">
                 <div class="switch">
                     <label>
                     <input id="is_urgent" name="is_urgent" type="checkbox">
@@ -75,4 +82,6 @@
             closeOnSelect: false // Close upon selecting a date,
         });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 {% endblock %}

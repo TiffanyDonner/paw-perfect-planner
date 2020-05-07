@@ -74,8 +74,10 @@ def delete_event(event_id):
 
 @app.route('/get_pets')
 def get_pets():
+    user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
+    pets = mongo.db.pet_profile.find({'owner': user['username']})
     return render_template("pets.html", 
-                           pets=mongo.db.pets.find())
+                           pets=pets)
 
 @app.route('/add_pet', methods=['POST', 'GET'])
 def add_pet():
@@ -92,10 +94,11 @@ def insert_pet():
 
 @app.route('/edit_pet/<pet_id>')
 def edit_pet(pet_id):
-    the_pet =  mongo.db.pets.find_one({"_id": ObjectId(pet_id)})
-    all_users =  mongo.db.users.find()
+    the_pet =  mongo.db.pet_profile.find_one({"_id": ObjectId(pet_id)})
+    all_types =  mongo.db.type.find()
+    all_genders = mongo.db.gender.find()
     return render_template('editpet.html', pet=the_pet,
-                           pets=all_pets)
+                           types=all_types, gender=all_genders)
 
 @app.route('/update_pet/<pet_id>', methods=["POST"])
 def update_pet(pet_id):
