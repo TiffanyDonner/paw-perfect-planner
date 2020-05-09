@@ -47,7 +47,7 @@ def insert_event():
     event_data = request.form.to_dict()
     event_data['owner'] = session['username']
     events.insert_one(event_data)
-    return redirect(url_for('get_events'))
+    return redirect(url_for('userprofile'))
 
 @app.route('/edit_event/<event_id>')
 def edit_event(event_id):
@@ -77,7 +77,7 @@ def delete_event(event_id):
 @app.route('/get_pets')
 def get_pets():
     user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
-    pets = mongo.db.pet_profile.find({'owner': user['username']})
+    pets = mongo.db.pets.find({'owner': user['username']})
     return render_template("pets.html",
                            pets=pets)
 
@@ -96,7 +96,7 @@ def insert_pet():
 
 @app.route('/edit_pet/<pet_id>')
 def edit_pet(pet_id):
-    the_pet = mongo.db.pet_profile.find_one({"_id": ObjectId(pet_id)})
+    the_pet = mongo.db.pets.find_one({"_id": ObjectId(pet_id)})
     all_types = mongo.db.type.find()
     all_genders = mongo.db.gender.find()
     return render_template('editpet.html', pet=the_pet,
@@ -123,7 +123,7 @@ def delete_pet(pet_id):
 @app.route('/userprofile')
 def userprofile():
     user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
-    pets = mongo.db.pet_profile.find({'owner': user['username']})
+    pets = mongo.db.pets.find({'owner': user['username']})
     user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
     events = mongo.db.events.find({'owner': user['username']})
     return render_template("userprofile.html", pets=pets, events=events)
