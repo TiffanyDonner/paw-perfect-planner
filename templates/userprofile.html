@@ -1,51 +1,75 @@
-{% extends "layoutuser.html" %}
-{% block user %}
+{% extends "layoutuser.html" %} {% block user %}
 
-    <!-- USERNAME ROW START -->
-    <div class="username-greetings row">
-        <div class="col-4">
-            <h5>Hi! {{ session['username'] }}</h5>
-        </div>
+<!-- USERNAME ROW START -->
+<div class="username-greetings row">
+    <div class="center-align">
+        <h5>Hi! {{ session['username'] }}! Welcome to your Paw Purfect Planner</h5>
     </div>
+</div>
 
-    <!-- PET ROW START -->
-    <div class="pet-greetings row">
-        <a class="waves-effect waves-light btn" href="{{ url_for('get_pets') }}">
-            {% for pet in pets %}<div value="{{pet.pet_name}}">{{pet.pet_name}}</div>{% endfor %}
-            <input placeholder="+ New Pet">
-        </a>
+<!-- PET ROW START -->
+<div class="pet-greeting row">
+    <div class="title">
+        <p>🐾Pet Information:</p>
+    </div>
+</div>
+<div class="pet-list row">
+    <ul class="collapsible" data-collapsible="accordion">
+        {% for pet in pets %}
+        <li>
+            <div class="collapsible-header">
+                <div class="col s3">
+                    <i class="material-icons">expand_more</i>
+                    <a href="{{url_for('edit_pet', pet_id=pet._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>
+                </div>
+                <div class="event_header col s9"><strong>{{pet.pet_name}}</strong> - {{pet.birth_date}}</div>
+            </div>
+            <div class="collapsible-body">
+                <ul>
+                    <li>Type: {{pet.pet_type}}</li>
+                    <li>Breed: {{pet.pet_breed}}</li>
+                    <li>Birth Date: {{pet.birth_date}}</li>
+                    <li>Gender: {{pet.gender}}</li>
+                    <li>Weight: {{pet.pet_weight}}</li>
+                    <li>ID Number: {{pet.pet_id_number}}</li>
+                </ul>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- EVENTS ROW START -->
+<div class="event-greeting row">
+    <div class="title">
+        <p>Events:</p>
+    </div>
+</div>
+<div class="event-list row">
+    <ul class="collapsible" data-collapsible="accordion">
+        {% for event in events %}
+        <li>
+            <div class="collapsible-header">
+                <div class="col s3">
+                    <i class="material-icons">expand_more</i>
+                    <a href="{{url_for('edit_event', event_id=event._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>
+                </div>
+                <div class="event_header col s9"><strong>{{event.event_name}}</strong> - {{event.due_date}}</div>
+            </div>
+            <div class="collapsible-body">
+                <ul>
+                    <li>Description: {{event.event_description}}</li>
+                    <li>Notes: {{event.event_notes}}</li>
+                </ul>
+                <br>
+                <a href="{{url_for('delete_event', event_id=event._id)}}" class="waves-effect waves-light btn btn_small">Delete Record</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="add-event col 3">
         <a class="waves-effect waves-light btn" href="{{ url_for('add_event') }}">+ New Event</a>
-    </div>
-        
-    <!-- EVENTS ROW START -->
-    <div class="events-greetings row">
-        <div class="row">
-            <ul class="collapsible" data-collapsible="accordion">
-                {% for event in events %}
-                <li>
-                    <div class="collapsible-header">
-                        <div class="col s3">
-                            <i class="material-icons">expand_more</i>
-                                <a href="{{url_for('edit_event', event_id=event._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>
-                        
-                        </div>
-                        <div class=" event_header col s9">
-                            <strong>{{event.event_name}}</strong> - {{event.due_date}}
-                        </div>
-                    </div>
-                    <div class="collapsible-body">
-                        <span>
-                            <p>Description: {{event.event_description}}</p>
-                            <p>Notes: {{event.event_notes}}</p>
-                            <a href="{{url_for('delete_event', event_id=event._id)}}" class="waves-effect waves-light btn btn_small">Delete Record</a>
-                        </span>
-                    </div>
-                </li>
-                {% endfor %}
-
-            </ul>
-        </div>
-    </div>
-
+</div>
 
 {% endblock %}

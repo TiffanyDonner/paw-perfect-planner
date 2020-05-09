@@ -25,10 +25,6 @@ nav ul a {
    color: #4B2A14; 
 }
 
-.navbar-brand {
-    
-}
-
 a.brand-logo {
     font-size: 25px;
     font-family: 'Delius', cursive;
@@ -66,5 +62,9 @@ a.brand-logo {
 /** Page Elements **/
 .event_header {
     margin-top: 5px;
+}
+
+.row {
+    margin-bottom: auto;
 }
 
