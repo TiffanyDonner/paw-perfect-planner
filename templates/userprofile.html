@@ -65,7 +65,7 @@
                     <li>Description: {{event.event_description}}</li>
                     <li>Notes: {{event.event_notes}}</li>
                 </ul>
-                <br>
+                <br />
                 <!-- Delete button in expanded area of event accordian -->
                 <a href="{{url_for('delete_event', event_id=event._id)}}" class="waves-effect waves-light btn btn_small">Delete Record</a>
             </div>
@@ -75,7 +75,7 @@
 </div>
 <!-- Add event button -->
 <div class="add-event col 3">
-        <a class="waves-effect waves-light btn" href="{{ url_for('add_event') }}">+ New Event</a>
+    <a class="waves-effect waves-light btn" href="{{ url_for('add_event') }}">+ New Event</a>
 </div>
 
 {% endblock %}

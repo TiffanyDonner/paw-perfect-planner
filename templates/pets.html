@@ -1,5 +1,4 @@
-{% extends "layoutpage.html" %}
-{% block page %}
+{% extends "layoutpage.html" %} {% block page %}
 <div class="add-pet row">
     <a class="waves-effect waves-light btn" href="{{ url_for('add_pet') }}">+ New Pet</a>
 </div>
@@ -11,11 +10,8 @@
                 <div class="col s3">
                     <i class="material-icons">expand_more</i>
                     <a href="{{url_for('edit_pet', pet_id=pet._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>
-                    
                 </div>
-                <div class=" event_header col s9">
-                    <strong>{{pet.pet_name}}</strong> - {{pet.birth_date}}
-                </div>
+                <div class="event_header col s9"><strong>{{pet.pet_name}}</strong> - {{pet.birth_date}}</div>
             </div>
             <div class="collapsible-body">
                 <span>
@@ -30,7 +26,6 @@
             </div>
         </li>
         {% endfor %}
-
     </ul>
 </div>
 
