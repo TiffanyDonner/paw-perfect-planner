@@ -20,6 +20,7 @@
 
 <body>
     <header>
+        <!-- Navigation -->
         <nav>
             <div class="nav-wrapper">
                 <a href="{{url_for('index')}}" class="brand-logo">🐾Paw Purfect</a>
@@ -32,11 +33,16 @@
                 </ul>
             </div>
         </nav>
-        <div class="parallax-container">
-      <div class="parallax"><img src="static/images/dog-cat.jpg"></div>
-</div>
     </header>
-    
+
+    <!-- Banner Image -->
+    <div class="parallax-container">
+        <div class="parallax">
+            <img src="static/images/dog-cat.jpg" alt="Picture of dog and cat">
+        </div>
+    </div>
+      
+    <!-- Body Block -->
     <div class="container">
         {% block body %}{% endblock %}
     </div>
