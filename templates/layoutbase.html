@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
         <title>Paw Purfect Planner</title>
 
         <!-- Materialize CSS -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
         <!-- Google fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
         <!-- Style CSS -->
         <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
-
     </head>
 
     <body>
@@ -32,7 +31,7 @@
                 <img src="static/images/dog-cat.jpg" alt="Picture of dog and cat" />
             </div>
         </div>
-      
+
         <!-- Body Block -->
         <div class="container">
             {% block body %}{% endblock %}
@@ -43,9 +42,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>
             $(document).ready(function () {
-                $('.parallax').parallax();                
-            });            
+                $(".parallax").parallax();
+            });
         </script>
     </body>
-
 </html>
