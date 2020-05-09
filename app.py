@@ -74,7 +74,7 @@ def update_event(event_id):
 @app.route('/delete_event/<event_id>')
 def delete_event(event_id):
     mongo.db.events.remove({'_id': ObjectId(event_id)})
-    return redirect(url_for('get_events'))
+    return redirect(url_for('userprofile'))
 
 @app.route('/get_pets')
 def get_pets():
@@ -103,7 +103,7 @@ def edit_pet(pet_id):
     all_types = mongo.db.type.find()
     all_genders = mongo.db.gender.find()
     return render_template('editpet.html', pet=the_pet,
-                           types=all_types, gender=all_genders)
+                           type=all_types, gender=all_genders)
 
 @app.route('/update_pet/<pet_id>', methods=["POST"])
 def update_pet(pet_id):
@@ -123,13 +123,12 @@ def update_pet(pet_id):
 @app.route('/delete_pet/<pet_id>')
 def delete_pet(pet_id):
     mongo.db.pets.remove({'_id': ObjectId(pet_id)})
-    return redirect(url_for('get_pets'))
+    return redirect(url_for('userprofile'))
 
 @app.route('/userprofile')
 def userprofile():
     user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
     pets = mongo.db.pets.find({'owner': user['username']})
-    user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
     events = mongo.db.events.find({'owner': user['username']})
     return render_template("userprofile.html", pets=pets, events=events)
 
