@@ -4,8 +4,10 @@
     <div class="page-title row">
         <h4>Add Event</h4>
     </div>
+    <!-- Event Options START -->
     <div class="row">
         <form action="{{ url_for('insert_event') }}" method="POST" class="col s12">
+            <!-- Choose Catagory -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">poll</i>
@@ -18,6 +20,7 @@
                     <label>Event Category</label>
                 </div>
             </div>
+            <!-- Event Name -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">assignment</i>
@@ -25,6 +28,7 @@
                     <label for="event_name">Event Name</label>
                 </div>
             </div>
+            <!-- Description -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">subject</i>
@@ -32,6 +36,7 @@
                     <label for="event_description">Event Description</label>
                 </div>
             </div>
+            <!-- Date -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">today</i>
@@ -39,6 +44,7 @@
                     <label for="due_date">Due Date</label>
                 </div>
             </div>
+            <!-- Time -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">today</i>
@@ -46,6 +52,7 @@
                     <label for="due_time">Time</label>
                 </div>
             </div>
+            <!-- Notes -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">subject</i>
@@ -53,6 +60,7 @@
                     <label for="event_notes">Event Notes</label>
                 </div>
             </div>
+            <!-- Urgent Switch -->
             <div class="row">
                 <div class="switch">
                     <label>
@@ -62,6 +70,7 @@
                     </label>
                 </div>
             </div>
+            <!-- Submit Button -->
             <div class="row">
                 <button class="btn waves-effect waves-light" type="submit" name="action">
                     Add Event
