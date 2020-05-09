@@ -1,88 +1,68 @@
-{% extends 'layoutpage.html' %} 
-{% block page %}
-<!-- CONTAINER START -->
-
-<div class="container">
-    <h3>Add Event</h3>
+{% extends 'layoutpage.html' %} {% block page %}
+<!-- Add Event CONTAINER START -->
+<div class="add-event container">
+    <div class="page-title row">
+        <h4>Add Event</h4>
+    </div>
     <div class="row">
-        <form action="{{ url_for('insert_event') }}" method="POST"  class="col s12">
+        <form action="{{ url_for('insert_event') }}" method="POST" class="col s12">
             <div class="row">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <data id="owner" name="owner">
-                        {% for owner in owners %}
-                            <option value="{{owner.username}}">{{owner.username}}</option>
-                        {% endfor %}
-                        </data>
-                    </div>
-                </div>
-            <div class="row">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">poll</i>
-                        <select id="category" name="category_name">
-                    <option value="" disabled selected>Choose Category</option>
-                    {% for cat in categories %}
-                        <option value="{{cat.category_name}}">{{cat.category_name}}</option>
-                    {% endfor %}
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">poll</i>
+                    <select id="category" name="category_name">
+                        <option value="" disabled selected>Choose Category</option>
+                        <option value="Grooming">Grooming</option>
+                        <option value="Veterinary">Veterinary</option>
+                        <option value="Other">Other</option>
                     </select>
-                        <label>Event Category</label>
-                    </div>
+                    <label>Event Category</label>
                 </div>
+            </div>
+            <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">assignment</i>
-                    <input id="event_name" name="event_name" type="text">
-                    <label for="icon_prefix">Event Name</label>
+                    <input id="event_name" name="event_name" type="text" />
+                    <label for="event_name">Event Name</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">subject</i>
                     <textarea name="event_description" id="event_description" class="materialize-textarea"></textarea>
-                    <label for="icon_telephone">Event Description</label>
+                    <label for="event_description">Event Description</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">today</i>
-                    <input id="due_date" name="due_date" type="text" class="datepicker">
-                    <label for="icon_prefix">Due Date</label>
+                    <input id="due_date" name="due_date" type="text" class="datepicker" />
+                    <label for="due_date">Due Date</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">subject</i>
                     <textarea name="event_notes" id="event_notes" class="materialize-textarea"></textarea>
-                    <label for="icon_telephone">Event Notes</label>
+                    <label for="event_notes">Event Notes</label>
                 </div>
             </div>
             <div class="row">
                 <div class="switch">
                     <label>
-                    <input id="is_urgent" name="is_urgent" type="checkbox">
-                    <span class="lever"></span>
-                    Is Urgent
+                        <input id="is_urgent" name="is_urgent" type="checkbox" />
+                        <span class="lever"></span>
+                        Is Urgent
                     </label>
                 </div>
             </div>
             <div class="row">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Add Event
+                <button class="btn waves-effect waves-light" type="submit" name="action">
+                    Add Event
                     <i class="material-icons right">playlist_add</i>
                 </button>
             </div>
         </form>
     </div>
 </div>
-<script type="text/javascript">
-    $('.datepicker').pickadate({
-            selectMonths: true, // Creates a dropdown to control month
-            selectYears: 15, // Creates a dropdown of 15 years to control year,
-            today: 'Today',
-            clear: 'Clear',
-            close: 'Ok',
-            closeOnSelect: false // Close upon selecting a date,
-        });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 {% endblock %}
