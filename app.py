@@ -91,8 +91,10 @@ def add_pet():
 @app.route('/insert_pet', methods=['POST'])
 def insert_pet():
     pets = mongo.db.pets
-    pets.insert_one(request.form.to_dict())
-    return redirect(url_for('get_pets'))
+    pet_data = request.form.to_dict()
+    pet_data['owner'] = session['username']
+    pets.insert_one(pet_data)
+    return redirect(url_for('userprofile'))
 
 @app.route('/edit_pet/<pet_id>')
 def edit_pet(pet_id):

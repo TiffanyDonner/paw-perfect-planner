@@ -13,18 +13,18 @@
                     <i class="material-icons prefix">poll</i>
                     <select id="category" name="category_name">
                         <option value="" disabled selected>Choose Category</option>
-                        <option value="Grooming">Grooming</option>
-                        <option value="Veterinary">Veterinary</option>
-                        <option value="Other">Other</option>
+                        {% for cat in categories %}
+                        <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+                        {% endfor %}
                     </select>
-                    <label>Event Category</label>
+                    <label>Task Category</label>
                 </div>
             </div>
             <!-- Event Name -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">assignment</i>
-                    <input id="event_name" name="event_name" type="text" />
+                    <input id="event_name" name="event_name" type="text">
                     <label for="event_name">Event Name</label>
                 </div>
             </div>
