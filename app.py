@@ -45,7 +45,7 @@ def add_event():
 def insert_event():
     events =  mongo.db.events
     event_data = request.form.to_dict()
-    event_data['username'] = session['username']
+    event_data['owner'] = session['username']
     events.insert_one(event_data)
     return redirect(url_for('get_events'))
 
