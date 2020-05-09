@@ -1,26 +1,24 @@
-{% extends "layoutbase.html" %}
-{% block body %}
+{% extends "layoutbase.html" %} {% block body %}
 <div class="container">
     <div class="row">
         <div>
-               Invalid Username and Password... <br>Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a>.
+            Invalid Username and Password... <br />
+            Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a>.
         </div>
         <div class="col-md-4 col-md-offset-4">
-            <form method=POST action="{{ url_for('login') }}">
+            <form method="POST" action="{{ url_for('login') }}">
                 <div class="form-group">
                     <label for="input-username">Username</label>
-                    <input type="text" class="form-control" id="input-username" name="username" placeholder="Username" id="input-username">
+                    <input type="text" class="form-control" id="input-username" name="username" placeholder="Username" />
                 </div>
                 <div class="form-group">
                     <label for="input-password">Password</label>
-                    <input type="password" class="form-control" id="input-password" name="pass" placeholder="Password">
+                    <input type="password" class="form-control" id="input-password" name="pass" placeholder="Password" />
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Log In</button>
             </form>
-            <br>
-            <div>
-                Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a>.
-            </div>
+            <br />
+            <div>Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a>.</div>
         </div>
     </div>
 </div>
