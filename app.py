@@ -27,7 +27,7 @@ def index():
 
     return render_template('index.html')
 
-@app.route('/get_events')
+@app.route('/get_events', methods=['GET'])
 def get_events():
     user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
     events = mongo.db.events.find({'owner': user['username']})
@@ -51,21 +51,21 @@ def insert_event():
 
 @app.route('/edit_event/<event_id>')
 def edit_event(event_id):
-    the_event =  mongo.db.events.find_one({"_id": ObjectId(event_id)})
-    all_categories =  mongo.db.categories.find()
+    the_event = mongo.db.events.find_one({"_id": ObjectId(event_id)})
+    all_categories = mongo.db.categories.find()
     return render_template('editevent.html', event=the_event,
                            categories=all_categories)
 
 @app.route('/update_event/<event_id>', methods=["POST"])
 def update_event(event_id):
     events = mongo.db.events
-    events.update( {'_id': ObjectId(event_id)},
+    events.update({'_id': ObjectId(event_id)},
     {
-        'event_name':request.form.get('event_name'),
-        'category_name':request.form.get('category_name'),
+        'event_name': request.form.get('event_name'),
+        'category_name': request.form.get('category_name'),
         'event_description': request.form.get('event_description'),
         'due_date': request.form.get('due_date'),
-        'is_urgent':request.form.get('is_urgent')
+        'is_urgent': request.form.get('is_urgent')
     })
     return redirect(url_for('get_events'))
 
@@ -78,26 +78,26 @@ def delete_event(event_id):
 def get_pets():
     user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
     pets = mongo.db.pet_profile.find({'owner': user['username']})
-    return render_template("pets.html", 
+    return render_template("pets.html",
                            pets=pets)
 
 @app.route('/add_pet', methods=['POST', 'GET'])
 def add_pet():
     if 'username' in session:
         return render_template('addpet.html',
-                            users=mongo.db.users.find())
+                               users=mongo.db.users.find())
     return render_template('index.html')
 
 @app.route('/insert_pet', methods=['POST'])
 def insert_pet():
-    pets =  mongo.db.pets
+    pets = mongo.db.pets
     pets.insert_one(request.form.to_dict())
     return redirect(url_for('get_pets'))
 
 @app.route('/edit_pet/<pet_id>')
 def edit_pet(pet_id):
-    the_pet =  mongo.db.pet_profile.find_one({"_id": ObjectId(pet_id)})
-    all_types =  mongo.db.type.find()
+    the_pet = mongo.db.pet_profile.find_one({"_id": ObjectId(pet_id)})
+    all_types = mongo.db.type.find()
     all_genders = mongo.db.gender.find()
     return render_template('editpet.html', pet=the_pet,
                            types=all_types, gender=all_genders)
@@ -105,13 +105,13 @@ def edit_pet(pet_id):
 @app.route('/update_pet/<pet_id>', methods=["POST"])
 def update_pet(pet_id):
     pets = mongo.db.pets
-    pets.update( {'_id': ObjectId(pet_id)},
+    pets.update({'_id': ObjectId(pet_id)},
     {
-        'pet_name':request.form.get('pet_name'),
-        'pet_type':request.form.get('pet_type'),
+        'pet_name': request.form.get('pet_name'),
+        'pet_type': request.form.get('pet_type'),
         'gender': request.form.get('gender'),
         'pet_breed': request.form.get('pet_breed'),
-        'birth_date':request.form.get('birth_date')
+        'birth_date': request.form.get('birth_date')
     })
     return redirect(url_for('get_pets'))
 
@@ -130,12 +130,10 @@ def userprofile():
 
 @app.route('/invaliduser')
 def invaliduser():
-    
     return render_template("invalid.html")
 
 @app.route('/existinguser')
 def existinguser():
-    
     return render_template("existinguser.html")
 
 @app.route('/login', methods=['POST'])
@@ -143,7 +141,6 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         login_user = mongo.db.users.find_one({'username': username})
-        
         if login_user:
             if bcrypt.hashpw(
                     request.form['pass'].encode('utf-8'),
@@ -151,7 +148,6 @@ def login():
                 session['username'] = request.form.to_dict()['username']
                 session['username_id'] = str(login_user['_id'])
                 return redirect(url_for('userprofile'))
-            
         return redirect(url_for('invaliduser'))
 
 @app.route('/register', methods=['POST', 'GET'])
@@ -160,16 +156,14 @@ def register():
     if does not exist, renders register.html """
     if request.method == 'POST':
         users = mongo.db.users
-        existing_user = users.find_one({'username' : request.form['username']})
+        existing_user = users.find_one({'username': request.form['username']})
 
         if existing_user is None:
             hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
-            inserted_user = users.insert_one({'username' : request.form['username'], 'password' : hashpass})
+            inserted_user = users.insert_one({'username': request.form['username'], 'password': hashpass})
             session['username'] = request.form['username']
             session['username_id'] = str(inserted_user.inserted_id)
-            print (session['username_id'])
             return render_template('userprofile.html')
-        
         return render_template('existinguser.html')
 
     return render_template('register.html')
@@ -177,7 +171,6 @@ def register():
 @app.route('/end_session')
 def end_session():
     """End session."""
-    
     session.clear()
     return render_template("index.html")
 
