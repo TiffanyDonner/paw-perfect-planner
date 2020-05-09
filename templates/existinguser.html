@@ -1,23 +1,27 @@
 {% extends "layoutpage.html" %}
-{% block page %} 
-<div class="container">
+{% block page %}
+<!-- Information for user that name already exists in the database -->
+<div class="info-text container">
     <div>
         Username already exists... Do you have an account? <a href="{{ url_for('login') }}">Sign in here</a>.
     </div>
+    <!-- Registration Form START -->
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <form method=POST action="{{ url_for('register') }}">
+                <!-- Input Username -->
                 <div class="form-group">
                     <label for="input-username">Username</label>
                     <input type="text" class="form-control" id="input-username" name="username" placeholder="Username">
                 </div>
+                <!-- Input Password -->
                 <div class="form-group">
                     <label for="input-password">Password</label>
                     <input type="password" class="form-control" id="input-password" name="pass" placeholder="Password">
                 </div>
+                <!-- Submit button -->
                 <button type="submit" class="btn btn-primary btn-block">Register</button>
             </form>
-            <br>
         </div>
     </div>
 </div>

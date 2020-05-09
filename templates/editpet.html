@@ -1,8 +1,11 @@
 {% extends 'layoutpage.html'%} {% block page %}
-
+<div class="page-title row">
 <h3>Edit Pet</h3>
+</div>
+<!-- Pet Options START -->
 <div class="row">
     <form action="{{ url_for('insert_pet', pet_id=pet._id) }}" method="POST" class="col s12">
+        <!-- Pet Name -->
         <div class="row">
             <div class="row">
                 <div class="input-field col s12">
@@ -11,6 +14,7 @@
                     <label for="pet_name">Pet Name</label>
                 </div>
             </div>
+            <!-- Pet Type (Dog or Cat) -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">poll</i>
@@ -25,6 +29,7 @@
                     <label>Pet Type</label>
                 </div>
             </div>
+            <!-- Pet Gender -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">poll</i>
@@ -39,6 +44,7 @@
                     <label>Gender</label>
                 </div>
             </div>
+            <!-- Pet Breed -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">assignment</i>
@@ -46,6 +52,7 @@
                     <label for="pet_breed">Pet Breed</label>
                 </div>
             </div>
+            <!-- Birthdate -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">today</i>
@@ -53,6 +60,7 @@
                     <label for="birth_date">Birth Date</label>
                 </div>
             </div>
+            <!-- Pet Weight -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">assignment</i>
@@ -60,6 +68,7 @@
                     <label for="pet_weight">Weight</label>
                 </div>
             </div>
+            <!-- Pet ID Number -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">assignment</i>
@@ -67,6 +76,7 @@
                     <label for="pet_id_number">ID Number</label>
                 </div>
             </div>
+            <!-- Submit button -->
             <div class="row">
                 <button class="btn waves-effect waves-light" type="submit" name="action">
                     Update Pet
@@ -75,10 +85,12 @@
             </div>
         </div>
     </form>
+    <!-- Delete Pet Button -->
     <div class="row">
         <a class="delete-button waves-effect waves-light btn" href="{{url_for('delete_pet', pet_id=pet._id)}}">Delete Pet Record</a>
     </div>
 </div>
+<!-- Extra Java to fix Calender Bugs -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
