@@ -65,6 +65,8 @@ def update_event(event_id):
         'category_name': request.form.get('category_name'),
         'event_description': request.form.get('event_description'),
         'due_date': request.form.get('due_date'),
+        'event_time': request.form.get('event_time'),
+        'event_notes': request.form.get('event_notes'),
         'is_urgent': request.form.get('is_urgent')
     })
     return redirect(url_for('get_events'))
@@ -78,14 +80,13 @@ def delete_event(event_id):
 def get_pets():
     user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
     pets = mongo.db.pets.find({'owner': user['username']})
-    return render_template("pets.html",
-                           pets=pets)
+    return render_template("pets.html", pets=pets)
 
 @app.route('/add_pet', methods=['POST', 'GET'])
 def add_pet():
     if 'username' in session:
         return render_template('addpet.html',
-                               users=mongo.db.users.find())
+                               gender=mongo.db.gender.find(), type=mongo.db.type.find(), user=session['username'])
     return render_template('index.html')
 
 @app.route('/insert_pet', methods=['POST'])
@@ -111,9 +112,11 @@ def update_pet(pet_id):
     {
         'pet_name': request.form.get('pet_name'),
         'pet_type': request.form.get('pet_type'),
-        'gender': request.form.get('gender'),
+        'gender_type': request.form.get('gender_type'),
         'pet_breed': request.form.get('pet_breed'),
-        'birth_date': request.form.get('birth_date')
+        'birth_date': request.form.get('birth_date'),
+        'pet_weight': request.form.get('pet_weight'),
+        'pet_id_number': request.form.get('pet_id_number'),
     })
     return redirect(url_for('get_pets'))
 
