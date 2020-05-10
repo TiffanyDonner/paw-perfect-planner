@@ -141,10 +141,12 @@ def delete_pet(pet_id):
 @app.route('/userprofile')
 def userprofile():
     """ Finds user, their pets and events in database. Then displays that infomation on the userprofile """
-    user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
-    pets = mongo.db.pets.find({'owner': user['username']})
-    events = mongo.db.events.find({'owner': user['username']})
-    return redirect(url_for('userprofile'), pets=pets, events=events)
+    if 'username' in session:
+        user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
+        pets = mongo.db.pets.find({'owner': user['username']})
+        events = mongo.db.events.find({'owner': user['username']})
+        return redirect(url_for('userprofile'), pets=pets, events=events)
+    return render_template('index.html')
 
 @app.route('/invaliduser')
 def invaliduser():
