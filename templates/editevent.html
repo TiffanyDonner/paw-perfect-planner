@@ -40,16 +40,16 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">today</i>
-                <input id="due_date" name="due_date" type="text" class="datepicker" />
-                <label for="icon_prefix">Due Date</label>
+                <input id="due_date" name="due_date" type="text" class="datepicker" value="{{event.due_date}}"  />
+                <label for="due_date">Due Date</label>
             </div>
         </div>
         <!-- Time -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">today</i>
-                <input id="due_time" name="due_time" type="text" class="timepicker" />
-                <label for="due_time">Time</label>
+                <input id="event_time" name="event_time" type="text" class="timepicker" value="{{event.event_time}}" />
+                <label for="event_time">Time</label>
             </div>
         </div>
         <!-- Notes -->

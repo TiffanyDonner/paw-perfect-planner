@@ -65,8 +65,10 @@ def edit_event(event_id):
 def update_event(event_id):
     """ After editing a event it replaces old information with new ones """
     events = mongo.db.events
-    events.update({'_id': ObjectId(event_id)},
-    {
+    event_data = request.form.to_dict()
+    event_data['owner'] = session['username']
+    events.update({'_id': ObjectId(event_id)}, event_data)
+    """{
         'event_name': request.form.get('event_name'),
         'category_name': request.form.get('category_name'),
         'event_description': request.form.get('event_description'),
@@ -74,8 +76,8 @@ def update_event(event_id):
         'event_time': request.form.get('event_time'),
         'event_notes': request.form.get('event_notes'),
         'is_urgent': request.form.get('is_urgent')
-    })
-    return redirect(url_for('get_events'))
+    })"""
+    return redirect(url_for('userprofile'))
 
 @app.route('/delete_event/<event_id>')
 def delete_event(event_id):
@@ -120,17 +122,21 @@ def edit_pet(pet_id):
 def update_pet(pet_id):
     """ After editing a pet it replaces old information with new ones """
     pets = mongo.db.pets
-    pets.update({'_id': ObjectId(pet_id)},
-    {
+    pet_data = request.form.to_dict()
+    pet_data['owner'] = session['username']
+    pets.update({'_id': ObjectId(pet_id)}, pet_data)
+
+    """{
         'pet_name': request.form.get('pet_name'),
         'pet_type': request.form.get('pet_type'),
-        'gender_type': request.form.get('gender_type'),
+        'pet_gender': request.form.get('pet_gender'),
         'pet_breed': request.form.get('pet_breed'),
         'birth_date': request.form.get('birth_date'),
         'pet_weight': request.form.get('pet_weight'),
         'pet_id_number': request.form.get('pet_id_number'),
-    })
-    return redirect(url_for('get_pets'))
+        'owner': session['username'],
+    })"""
+    return redirect(url_for('userprofile'))
 
 @app.route('/delete_pet/<pet_id>')
 def delete_pet(pet_id):
@@ -145,8 +151,9 @@ def userprofile():
         user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
         pets = mongo.db.pets.find({'owner': user['username']})
         events = mongo.db.events.find({'owner': user['username']})
-        return redirect(url_for('userprofile'), pets=pets, events=events)
-    return render_template('index.html')
+        return render_template('userprofile.html', pets=pets, events=events)
+
+    return redirect(url_for('index'))
 
 @app.route('/invaliduser')
 def invaliduser():

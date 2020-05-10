@@ -31,7 +31,7 @@
                     <li>Type: {{pet.pet_type}}</li>
                     <li>Breed: {{pet.pet_breed}}</li>
                     <li>Birth Date: {{pet.birth_date}}</li>
-                    <li>Gender: {{pet.gender}}</li>
+                    <li>Gender: {{pet.pet_gender}}</li>
                     <li>Weight: {{pet.pet_weight}}</li>
                     <li>ID Number: {{pet.pet_id_number}}</li>
                 </ul>
@@ -39,6 +39,10 @@
         </li>
         {% endfor %}
     </ul>
+</div>
+<!-- Add pet button -->
+<div class="add-pet col 3">
+    <a class="waves-effect waves-light btn" href="{{ url_for('add_pet') }}">+ New Pet</a>
 </div>
 
 <!-- EVENTS ROW START -->
