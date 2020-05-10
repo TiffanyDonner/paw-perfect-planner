@@ -129,6 +129,7 @@ def delete_pet(pet_id):
 def userprofile():
     user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
     pets = mongo.db.pets.find({'owner': user['username']})
+    user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
     events = mongo.db.events.find({'owner': user['username']})
     return render_template("userprofile.html", pets=pets, events=events)
 
