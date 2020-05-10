@@ -29,13 +29,15 @@ def index():
 
 @app.route('/get_events', methods=['GET'])
 def get_events():
+    """ Checks if user is signed in and calls all events assigned to the user """
     user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
     events = mongo.db.events.find({'owner': user['username']})
     return render_template("events.html", events=events)
 
 @app.route('/add_event', methods=['POST', 'GET'])
 def add_event():
-    """*user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})"""
+    """ Checks for user in session to assign user to new event in database, else redirects to login """
+    """ user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])}) """
     if 'username' in session:
         return render_template('addevent.html', 
                                 categories=mongo.db.categories.find(), user=session['username'])
@@ -43,6 +45,7 @@ def add_event():
 
 @app.route('/insert_event', methods=['POST'])
 def insert_event():
+    """ Inserts new event to database assigned to owner and adds to userprofile """
     events =  mongo.db.events
     event_data = request.form.to_dict()
     event_data['owner'] = session['username']
@@ -51,6 +54,7 @@ def insert_event():
 
 @app.route('/edit_event/<event_id>')
 def edit_event(event_id):
+    """ Calls database for event by id, calls the catagories of that event. Then render editevent.html """
     the_event = mongo.db.events.find_one({"_id": ObjectId(event_id)})
     all_categories = mongo.db.categories.find()
     return render_template('editevent.html', event=the_event,
@@ -58,6 +62,7 @@ def edit_event(event_id):
 
 @app.route('/update_event/<event_id>', methods=["POST"])
 def update_event(event_id):
+    """ After editing a event it replaces old information with new ones """
     events = mongo.db.events
     events.update({'_id': ObjectId(event_id)},
     {
@@ -73,17 +78,20 @@ def update_event(event_id):
 
 @app.route('/delete_event/<event_id>')
 def delete_event(event_id):
+    """ Checks for id then deletes the event. """
     mongo.db.events.remove({'_id': ObjectId(event_id)})
     return redirect(url_for('userprofile'))
 
 @app.route('/get_pets')
 def get_pets():
+    """ Checks if user is signed in and calls all pets assigned to the user """
     user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
     pets = mongo.db.pets.find({'owner': user['username']})
     return render_template("pets.html", pets=pets)
 
 @app.route('/add_pet', methods=['POST', 'GET'])
 def add_pet():
+    """ Checks for user in session to assign user to new pet in database, else redirects to login """
     if 'username' in session:
         return render_template('addpet.html',
                                gender=mongo.db.gender.find(), type=mongo.db.type.find(), user=session['username'])
@@ -91,6 +99,7 @@ def add_pet():
 
 @app.route('/insert_pet', methods=['POST'])
 def insert_pet():
+    """ Inserts new pet to database assigned to owner and adds to userprofile """
     pets = mongo.db.pets
     pet_data = request.form.to_dict()
     pet_data['owner'] = session['username']
@@ -99,6 +108,7 @@ def insert_pet():
 
 @app.route('/edit_pet/<pet_id>')
 def edit_pet(pet_id):
+    """ Calls database for pet by id, calls the pet type and gender of that event. Then render editpet.html """
     the_pet = mongo.db.pets.find_one({"_id": ObjectId(pet_id)})
     all_types = mongo.db.type.find()
     all_genders = mongo.db.gender.find()
@@ -107,6 +117,7 @@ def edit_pet(pet_id):
 
 @app.route('/update_pet/<pet_id>', methods=["POST"])
 def update_pet(pet_id):
+    """ After editing a pet it replaces old information with new ones """
     pets = mongo.db.pets
     pets.update({'_id': ObjectId(pet_id)},
     {
@@ -122,11 +133,13 @@ def update_pet(pet_id):
 
 @app.route('/delete_pet/<pet_id>')
 def delete_pet(pet_id):
+    """ Checks for id then deletes the pet. """
     mongo.db.pets.remove({'_id': ObjectId(pet_id)})
     return redirect(url_for('userprofile'))
 
 @app.route('/userprofile')
 def userprofile():
+    """ Finds user, their pets and events in database. Then displays that infomation on the userprofile """
     user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
     pets = mongo.db.pets.find({'owner': user['username']})
     user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
@@ -135,14 +148,17 @@ def userprofile():
 
 @app.route('/invaliduser')
 def invaliduser():
+    """ Renders template for invalid user when login is inncorrect. """
     return render_template("invalid.html")
 
 @app.route('/existinguser')
 def existinguser():
+    """ Notifies that username is taken. """
     return render_template("existinguser.html")
 
 @app.route('/login', methods=['POST'])
 def login():
+    """ Checks username / password, if they match renders userprofile, if they do not match renders invalid user """
     if request.method == 'POST':
         username = request.form['username']
         login_user = mongo.db.users.find_one({'username': username})
@@ -157,8 +173,7 @@ def login():
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
-    """ If username already exists renders login.html,
-    if does not exist, renders register.html """
+    """ If username already exists renders existinguser.html, if does not exist, renders register.html """
     if request.method == 'POST':
         users = mongo.db.users
         existing_user = users.find_one({'username': request.form['username']})
