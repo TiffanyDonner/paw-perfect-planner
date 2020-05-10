@@ -25,11 +25,13 @@
                     <a href="{{ url_for('userprofile') }}" class="brand-logo">🐾Paw Purfect</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="{{ url_for('register' )}}">Register</a></li>
+                        <li><a href="{{url_for('userprofile')}}">HOME</a></li>
+                        <li><a href="{{ url_for('register')}}">Register</a></li>
                         <li><a href="{{ url_for('login') }}">LogIn</a></li>
                     </ul>
                     <ul class="sidenav" id="mobile-demo">
-                        <li><a href="{{ url_for('register' )}}">Register</a></li>
+                        <li><a href="{{url_for('userprofile')}}">HOME</a></li>
+                        <li><a href="{{ url_for('register')}}">Register</a></li>
                         <li><a href="{{ url_for('login') }}">LogIn</a></li>
                     </ul>
                 </div>

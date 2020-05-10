@@ -23,13 +23,14 @@ mongo = PyMongo(app)
 def index():
     """ Landing page with login / index.html """
     if 'username' in session:
-        return redirect(url_for('userprofile'))
+        return render_template('userprofile.html')
 
     return render_template('index.html')
 
 @app.route('/get_events', methods=['GET'])
 def get_events():
-    """ Checks if user is signed in and calls all events assigned to the user """
+    """ Checks if user is signed in and calls
+        all events assigned to the user """
     user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
     events = mongo.db.events.find({'owner': user['username']})
     return render_template("events.html", events=events)
@@ -142,9 +143,8 @@ def userprofile():
     """ Finds user, their pets and events in database. Then displays that infomation on the userprofile """
     user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
     pets = mongo.db.pets.find({'owner': user['username']})
-    user = mongo.db.users.find_one({'_id': ObjectId(session['username_id'])})
     events = mongo.db.events.find({'owner': user['username']})
-    return render_template("userprofile.html", pets=pets, events=events)
+    return redirect(url_for('userprofile'), pets=pets, events=events)
 
 @app.route('/invaliduser')
 def invaliduser():
