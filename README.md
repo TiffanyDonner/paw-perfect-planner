@@ -7,8 +7,7 @@ What did the Vet say the last time we were there? This is something we often say
 2. [Project purpose](#Project-purpose)
 3. [UX](#ux)
     - [User stories](#User-stories)
-    - [Future Updates](#Admin-stories)
-4. [Design and colors](#Design-and-colors)    
+4. [Features](#Features)    
 5. [Technology Used](#Technology-Used)
 6. [Testing](#Testing)
 7. [Credits](#Credits)
@@ -21,10 +20,26 @@ A live demo of the website can be found [here](https://paw-purfect-planner.herok
 To build a CRUD (Create, Read, Update, Delete) application using HTML, CSS, JavaScript, Python+Flask, and MongoDB.
 
 ## UX
+#### The ideal Paw Purfect User is:
+- Reading and Speaking English
+- A pet owner or a pet sitter
+- Busy, so keeping all their pet information in one place and easy to access is important.
 
-#### Wireframes and Database Design
+#### Stradegy
+The stradegy of the design was to give the user a clean and easy way to access their pets information all from one user profile.
+
+#### Scope
+The vistors of this site will get quick acces to an overview of there pets important information. They will be able to schedule important upcoming appointments. Also giving them a view into their pets history.
+
+#### Structure
+Most pet record sites leave the pet owner bogged down with features that are hard to find. I am starting the build on the site to be simple with nested functions that are intuativly placed. The future builds will be based on this original design.
+
+#### Skeleton
 - Wireframes [XD Share Link](https://xd.adobe.com/view/202021a4-b5e4-4aa5-77a7-936194d5fdf4-5611/?fullscreen&hints=off)
 - Database design [XD Share Link](https://xd.adobe.com/view/202021a4-b5e4-4aa5-77a7-936194d5fdf4-5611/?fullscreen&hints=off)
+
+#### Surface
+Natural earth tones that reflex earth and sky.
 
 ### User-stories
 #### SOFIA AND BELLA
@@ -40,8 +55,11 @@ Randy has a very active American Stafford Terrier, Roscoe, that is accident. Ran
 - A list of last and upcoming visits to the vet.
 - Roscoe's proof of vaccination and schedule
 
+## Features
+The site uses Materialize to enhance the site design by providing a responsive design, clean scrolling and nifty form features.
+
 ### Features left to impliment
-This is an ongoing project and will go live later in 2020. 
+This is an ongoing project and will go fully live later in 2020. 
 #### Next Release 1.5:
 - About and Contact Page
 - Add the appbility to add a pet photo.
@@ -55,8 +73,6 @@ This is an ongoing project and will go live later in 2020.
 #### Future of 🐾Paw Purfect Planner
 Demonstration of what Paw Putfect Planner will look like in the future [XD Share Link](https://xd.adobe.com/view/202021a4-b5e4-4aa5-77a7-936194d5fdf4-5611/?fullscreen&hints=off)
 
-## Features
-
 ## Technology-Used
 | Languages | Libraries | Tools | Hosting |
 |----------------------------------|----------------------------------|----------------------------------|----------------------------------|
@@ -69,11 +85,6 @@ Demonstration of what Paw Putfect Planner will look like in the future [XD Share
 | [Python](https://www.python.org/) | py-bcrypt | 
 
 ## Testing
-### Manual Testing
-| Page  | Form Function | Link Testing | Notes |
-| ------------- | ------------- |------------- |------------- |
-| Home  | ✔️Login | ✔️Navbar links ✔️Page Links | User is able to login and register sucessfully. |
-| Subpages  | NA  | ✔️Navbar links ✔️Page Links | ❌Edit ❌Add (Need to link forms to owner) |
 
 Tested CSS in w3 (2) errors found and corrected:
 1. Bad value: 
