@@ -124,7 +124,7 @@ W3C Internationalization Checker
 ## DEPLOYMENT
 ### GitHub Deployment with GitHub Pages
 
-#### Create a new [repository](https://github.com/TiffanyDonner/tipping-calculator-in-swedish/). 
+#### Create a new [repository](https://github.com/TiffanyDonner/paw-purfect-planner). 
 1. In the upper right corner use the + to bring down the menu. And select Repository.
 2. Select your account from the owner dropdown menu.
 3. Give your repository a name and optional description.
@@ -139,8 +139,8 @@ W3C Internationalization Checker
 
 #### Deployment to GitHub Pages
 1. In GitHub, navigate to Settings. Within Settings, navigate to the Source section under Github Pages. 
-2. From the dropdown menu, selected master branch and then clicked Save. 
-3. Git hub creates a [link](https://tiffanydonner.github.io/tipping-calculator-in-swedish/) to where the site is hosted/published.
+2. From the dropdown menu, selected master branch and selection will save automatically. 
+3. Git hub creates a [link](https://tiffanydonner.github.io/paw-purfect-planner/) to where the site is hosted/published.
 
 #### Updating
 1. Any updates that are committed and push to GitHub will be updated to GitHub Pages.
