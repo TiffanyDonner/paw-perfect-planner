@@ -1,95 +1,102 @@
 {% extends 'layoutpage.html'%} {% block page %}
 
+<!-- Add Pet START -->
 <div class="page-title row">
-    <h3>Edit Pet</h3>
+	<h3>Edit Pet</h3>
 </div>
 <!-- Pet Options START -->
 <div class="row">
-    <form action="{{ url_for('update_pet', pet_id=pet._id) }}" method="POST" class="col s12">
-        <!-- Pet Name -->
-        <div class="row">
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">assignment</i>
-                    <input id="pet_name" name="pet_name" type="text" class="validate" value="{{pet.pet_name}}" />
-                    <label for="pet_name">Pet Name</label>
-                </div>
-            </div>
-            <!-- Pet Type (Dog or Cat) -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">poll</i>
-                    <select id="pet" name="pet_type">
-                        <option value="" disabled selected>Choose Pet Type</option>
+	<form action="{{ url_for('update_pet', pet_id=pet._id) }}" method="POST" class="col s12">
+		<!-- Pet Name -->
+		<div class="row">
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">assignment</i>
+					<input id="pet_name" name="pet_name" type="text" class="validate" value="{{pet.pet_name}}" />
+					<label for="pet_name">Pet Name</label>
+				</div>
+			</div>
+			<!-- Pet Type (Dog or Cat) -->
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">poll</i>
+					<select id="pet" name="pet_type">
+						<option value="" disabled>Choose Pet Type</option>
                         {% for typ in type %} {% if typ.pet_type == pet.pet_type %}
-                        <option value="{{typ.pet_type}}" selected>{{typ.pet_type}}</option>
+                        
+						<option value="{{typ.pet_type}}" selected>{{typ.pet_type}}</option>
                         {% else %}
-                        <option value="{{typ.pet_type}}">{{typ.pet_type}}</option>
+                        
+						<option value="{{typ.pet_type}}">{{typ.pet_type}}</option>
                         {% endif %} {% endfor %}
-                    </select>
-                    <label>Pet Type</label>
-                </div>
-            </div>
-            <!-- Pet Gender -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">poll</i>
-                    <select id="gender" name="pet_gender">
-                        <option value="" disabled selected>Choose Gender</option>
+                    
+					</select>
+					<label>Pet Type</label>
+				</div>
+			</div>
+			<!-- Pet Gender -->
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">poll</i>
+					<select id="gender" name="pet_gender">
+						<option value="" disabled>Choose Gender</option>
                         {% for gen in gender %} {% if gen.gender_type == pet.pet_gender %}
-                        <option value="{{gen.gender_type}}" selected>{{gen.gender_type}}</option>
+                        
+						<option value="{{gen.gender_type}}" selected>{{gen.gender_type}}</option>
                         {% else %}
-                        <option value="{{gen.gender_type}}">{{gen.gender_type}}</option>
+                        
+						<option value="{{gen.gender_type}}">{{gen.gender_type}}</option>
                         {% endif %} {% endfor %}
-                    </select>
-                    <label>Gender</label>
-                </div>
-            </div>
-            <!-- Pet Breed -->
+                    
+					</select>
+					<label>Gender</label>
+				</div>
+			</div>
+			<!-- Pet Breed -->
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">assignment</i>
+					<input id="pet_breed" name="pet_breed" type="text" class="validate" value="{{pet.pet_breed}}" />
+					<label for="pet_breed">Pet Breed</label>
+				</div>
+			</div>
+			<!-- Birthdate -->
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">today</i>
+					<input id="birth_date" name="birth_date" type="text" class="datepicker" value="{{pet.birth_date}}" />
+					<label for="birth_date">Birth Date</label>
+				</div>
+			</div>
+			<!-- Pet Weight -->
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">assignment</i>
+					<input id="pet_weight" name="pet_weight" type="text" class="validate" value="{{pet.pet_weight}}" />
+					<label for="pet_weight">Weight</label>
+				</div>
+			</div>
+			<!-- Pet ID Number -->
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">assignment</i>
+					<input id="pet_id_number" name="pet_id_number" type="text" class="validate" value="{{pet.pet_id_number}}" />
+					<label for="pet_id_number">ID Number</label>
+				</div>
+			</div>
+			<!-- Submit button -->
+			<div class="row">
+				<button class="btn waves-effect waves-light" type="submit" name="action">
+                    Update Pet                    
+					<i class="material-icons right">playlist_add</i>
+				</button>
+			</div>
+            <!-- Delete Pet Button -->
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">assignment</i>
-                    <input id="pet_breed" name="pet_breed" type="text" class="validate" value="{{pet.pet_breed}}" />
-                    <label for="pet_breed">Pet Breed</label>
-                </div>
+	            <a class="delete-button waves-effect waves-light btn right" href="{{url_for('delete_pet', pet_id=pet._id)}}">Delete Pet Record</a>
             </div>
-            <!-- Birthdate -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">today</i>
-                    <input id="birth_date" name="birth_date" type="text" class="datepicker" value="{{pet.birth_date}}" />
-                    <label for="birth_date">Birth Date</label>
-                </div>
-            </div>
-            <!-- Pet Weight -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">assignment</i>
-                    <input id="pet_weight" name="pet_weight" type="text" class="validate" value="{{pet.pet_weight}}" />
-                    <label for="pet_weight">Weight</label>
-                </div>
-            </div>
-            <!-- Pet ID Number -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">assignment</i>
-                    <input id="pet_id_number" name="pet_id_number" type="text" class="validate" value="{{pet.pet_id_number}}" />
-                    <label for="pet_id_number">ID Number</label>
-                </div>
-            </div>
-            <!-- Submit button -->
-            <div class="row">
-                <button class="btn waves-effect waves-light" type="submit" name="action">
-                    Update Pet
-                    <i class="material-icons right">playlist_add</i>
-                </button>
-            </div>
-        </div>
-    </form>
-    <!-- Delete Pet Button -->
-    <div class="row">
-        <a class="delete-button waves-effect waves-light btn" href="{{url_for('delete_pet', pet_id=pet._id)}}">Delete Pet Record</a>
-    </div>
+		</div>
+	</form>
 </div>
 <!-- Extra Java to fix Calender Bugs -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
