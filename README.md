@@ -55,7 +55,7 @@ Randy has a very active American Stafford Terrier, Roscoe, that is accident. Ran
 - Roscoe's proof of vaccination and schedule
 
 ## Features
-###Paw Purfect Planner (BETA)
+### Paw Purfect Planner (BETA)
 The site uses Materialize to enhance the site design by providing a responsive design, clean scrolling and nifty form features.
 #### Header Logo
 Resides at the top of every page in the navigation bar. The logo is linked to the home page for users not logged in and the user profile for logged in users as expected.
@@ -99,11 +99,35 @@ This is an ongoing project and will go fully live later in 2020.
 | [Python](https://www.python.org/) | py-bcrypt | 
 
 ## Testing
-[Manual Testing (PDF)](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/readme/manual-testing.pdf)
-[Validation Testing (PDF)](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/readme/testing-validators.pdf)
-[Database Testing (PDF)](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/readme/database-testing.pdf)
+- [Manual Testing (PDF)](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/readme/manual-testing.pdf)
+- [Validation Testing (PDF)](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/readme/testing-validators.pdf)
+- [Database Testing (PDF)](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/readme/database-testing.pdf)
 
 ## User Testing
+### Questions and Answers
+(Each Tester was asked to send a screenshot of the home page and the user profile page.)
+
+#### When you clicked on the [link provided](http://paw-purfect-planner.herokuapp.com/), was the website purpose clear?
+- User A, "Yes, it was clear. I was able to find the registration page and registister for an account."
+- User B, "I am not really sure what the site does... I can tell it's about pets?"
+    - Update: I added additional text to the greeting to make the purpose of the website more clear.
+
+#### After you filled in the registration form, were you able to intuativly know what your next step was?
+- User A, "No. I can't find where to add my pets information."
+    - Update: I added an add pet button below pet information.
+- User B, "Yes, I used the navigation menu to add a pet to my profile page.
+
+#### When you add an event, is it clear where to find and edit the information for that event?
+- User A, "Yes. No problem."
+- User B, "Yes, but the dates are out of order and nothing happens on the user profile page when I mark it urgent.
+    - Update: These feature will be added in the next update.
+
+#### Would you use the website to keep track of your important pet information?
+- User A, "I think I would like more features if I was going to use this exclusively for my pets. Rather than just using my google calendar..."
+- User B, "Sure, seems like a good idea. I am looking forward to see what gets added in the future."
+
+(Any suggestions given by users are added above in [Features left to impliment](#Features left to impliment))
+
 ### Devices Tested
 ✓ The site is accessible to everyone on all devices.
 ✓ Both Windows and Apple computers in:
