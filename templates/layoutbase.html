@@ -1,70 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-        <title>Paw Purfect Planner</title>
-
-        <!-- Materialize CSS -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-        <!-- Google fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
-        <!-- Style CSS -->
-        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
-    </head>
-
-    <body>
-        <header>
-            <!-- Navigation Bar -->
-            <nav>
-                <div class="nav-wrapper">
-                    <a href="{{ url_for('userprofile') }}" class="brand-logo">🐾Paw Purfect</a>
-                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="{{ url_for('userprofile') }}">HOME</a></li>
-                        <li><a href="{{ url_for('register') }}">REGISTER</a></li>
-                        <li><a href="{{ url_for('userprofile') }}">LOGIN</a></li>
-                    </ul>
-                    <ul class="sidenav" id="mobile-demo">
-                        <li><a href="{{ url_for('userprofile') }}">HOME</a></li>
-                        <li><a href="{{ url_for('register') }}">REGISTER</a></li>
-                        <li><a href="{{ url_for('userprofile') }}">LOGIN</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!-- Banner Image -->
-        <div class="parallax-container">
-            <div class="parallax">
-                <img src="static/images/dog-cat.jpg" alt="Picture of dog and cat" />
-            </div>
-        </div>
-
-        <!-- Body Block -->
-        <div class="container">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Paw Purfect Planner</title>
+		<!-- Materialize CSS -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+		<!-- Google fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+		<!-- Style CSS -->
+		<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+	</head>
+	<body>
+		<header>
+			<!-- Navigation Bar -->
+			<nav>
+				<div class="nav-wrapper">
+					<a href="{{ url_for('userprofile') }}" class="brand-logo">🐾Paw Purfect</a>
+					<a href="#" data-target="mobile-demo" class="sidenav-trigger">
+						<i class="material-icons">menu</i>
+					</a>
+					<ul class="right hide-on-med-and-down">
+						<li>
+							<a href="{{ url_for('userprofile') }}">HOME</a>
+						</li>
+						<li>
+							<a href="{{ url_for('register') }}">REGISTER</a>
+						</li>
+						<li>
+							<a href="{{ url_for('userprofile') }}">LOGIN</a>
+						</li>
+					</ul>
+					<ul class="sidenav" id="mobile-demo">
+						<li>
+							<a href="{{ url_for('userprofile') }}">HOME</a>
+						</li>
+						<li>
+							<a href="{{ url_for('register') }}">REGISTER</a>
+						</li>
+						<li>
+							<a href="{{ url_for('userprofile') }}">LOGIN</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!-- Banner Image -->
+		<div class="parallax-container">
+			<div class="parallax">
+				<img src="static/images/dog-cat.jpg" alt="Picture of dog and cat" />
+			</div>
+		</div>
+		<!-- Body Block -->
+		<div class="container">
             {% block body %}{% endblock %}
         </div>
-
-        <!-- Copyright footer -->
-        <footer class="page-footer">
-            <div class="footer-copyright">
-                <div class="container">
+		<!-- Copyright footer -->
+		<footer class="page-footer">
+			<div class="footer-copyright">
+				<div class="container">
                     © 2020 Paw Purfect Planner
                 </div>
-            </div>
-        </footer>
-
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script>
+			</div>
+		</footer>
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<script>
             $(document).ready(function () {
                 $(".parallax").parallax();
             });
         </script>
-    </body>
+	</body>
 </html>
