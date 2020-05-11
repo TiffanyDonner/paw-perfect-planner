@@ -1,4 +1,4 @@
-![Paw Purfect Site Header Image](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/images/readme/header-readme.PNG)
+![Paw Purfect Site Header Image](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/readme/readme/header-readme.PNG)
 # 🐾Paw Purfect Planner
 What did the Vet say the last time we were there? This is something we often say as pet owners. Paw Purfect Planner is a simple web application that gives you everything you need to maintain your pet records and events.
 ## Table of Contents
@@ -35,8 +35,7 @@ The vistors of this site will get quick acces to an overview of there pets impor
 Most pet record sites leave the pet owner bogged down with features that are hard to find. I am starting the build on the site to be simple with nested functions that are intuativly placed. The future builds will be based on this original design.
 
 #### Skeleton
-- Wireframes [XD Share Link](https://xd.adobe.com/view/202021a4-b5e4-4aa5-77a7-936194d5fdf4-5611/?fullscreen&hints=off)
-- Database design [XD Share Link](https://xd.adobe.com/view/202021a4-b5e4-4aa5-77a7-936194d5fdf4-5611/?fullscreen&hints=off)
+Wireframes presentation designed in Adobe XD. Click the green text/button or next to view pages. [XD Share Link](https://xd.adobe.com/view/d3d4d633-9037-43ba-7e94-c97a5ff472d3-a5e5/)
 
 #### Surface
 Natural earth tones that reflex earth and sky.
@@ -55,8 +54,22 @@ Randy has a very active American Stafford Terrier, Roscoe, that is accident. Ran
 - A list of last and upcoming visits to the vet.
 - Roscoe's proof of vaccination and schedule
 
-## Features
+## Features in Paw Purfect Planner (BETA)
 The site uses Materialize to enhance the site design by providing a responsive design, clean scrolling and nifty form features.
+#### Header Logo
+Resides at the top of every page in the navigation bar. The logo is linked to the home page for users not logged in and the user profile for logged in users as expected.
+#### Navigation Bar
+Exists on every page easily navigate through the website's core features easily.
+#### Create
+Each user is able to create an user account, create a pet profile and add events through forms.
+#### Read
+Each registered user is able to read their data through their User Profile page. The data view also incluses a Materialize colaspable heading where they can view additional information.
+#### Update
+From the Profile page, the user can edit their pet or event, and navigate to a form to update the database with their new information. 
+#### Delete
+If the user feels they no longer need a record they have entered, they have the option to delete it.
+#### Footer
+Risides at the bottom of each page to establish closure and to protect the business copyright.
 
 ### Features left to impliment
 This is an ongoing project and will go fully live later in 2020. 
@@ -71,7 +84,7 @@ This is an ongoing project and will go fully live later in 2020.
 - Ability to uplaod documents into an event.
 
 #### Future of 🐾Paw Purfect Planner
-Demonstration of what Paw Putfect Planner will look like in the future [XD Share Link](https://xd.adobe.com/view/202021a4-b5e4-4aa5-77a7-936194d5fdf4-5611/?fullscreen&hints=off)
+
 
 ## Technology-Used
 | Languages | Libraries | Tools | Hosting |
@@ -85,20 +98,9 @@ Demonstration of what Paw Putfect Planner will look like in the future [XD Share
 | [Python](https://www.python.org/) | py-bcrypt | 
 
 ## Testing
-
-Tested CSS in w3 (2) errors found and corrected:
-1. Bad value: 
-    - Corrected by 
-2. Error
-    - Corrected by 
-
-W3C CSS Validator results: 
-
-W3 Link Validator results: 
-
-W3C Internationalization Checker
-1. (5) "<b>" tags without class
-    - Added the HTML class of totals. Since they related to the totals on the final tab.
+[Manual Testing (PDF)](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/readme/manual-testing.pdf)
+[Validation Testing (PDF)](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/readme/testing-validators.pdf)
+[Database Testing (PDF)](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/readme/database-testing.pdf)
 
 ## User Testing
 ### Devices Tested
@@ -116,13 +118,22 @@ W3C Internationalization Checker
     -iPhone 11
     -iPhone 10
 
-## Credits
-- Code Institue, [TaskManager Lesson](https://github.com/Code-Institute-Solutions/TaskManager): For basic event Function
-- Ewan Lockwood, [The Book Stop](https://github.com/ewanlockwood/the-book-stop): For structure on how to impliment a login system.
-- Px Here, [Banner Image](https://pxhere.com/en/photo/1597775)
-
 ## DEPLOYMENT
-### GitHub Deployment with GitHub Pages
+#### MongoDB Database Set-up
+1. Sign in to your [MongoDB](https://www.mongodb.com/) account.
+2. Navigate to or create a project.
+3. [Create a Database](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/readme/database-testing.pdf)
+4. Add a collection to your database.
+5. Add Document to your collection.
+
+#### Create a new [repository](https://github.com/TiffanyDonner/paw-purfect-planner) in GitHub
+1. In the upper right corner use the + to bring down the menu. And select Repository.
+2. Select your account from the owner dropdown menu.
+3. Give your repository a name and optional description.
+4. Choose the repository's visibility and initialize this repository with a README.
+5. Click Create Repository
+#### Create a Flask Application
+
 
 #### Create a new [repository](https://github.com/TiffanyDonner/paw-purfect-planner). 
 1. In the upper right corner use the + to bring down the menu. And select Repository.
@@ -134,7 +145,7 @@ W3C Internationalization Checker
 #### Create Your Website
 1. In GitHub navigate to your repository.
 2. Click on the green Gitpod button to open your development environment.
-3. Create an index.html in the root with what you want to be displayed on the main page of your site.
+3. Create a [template folder](https://github.com/TiffanyDonner/paw-purfect-planner/tree/master/templates) and add an index.html with what you want to be displayed on the main page of your site.
 4. Push your files and folders while updating git by adding files with commit messages to keep you organized through development.
 
 #### Deployment to GitHub Pages
@@ -146,3 +157,8 @@ W3C Internationalization Checker
 1. Any updates that are committed and push to GitHub will be updated to GitHub Pages.
 
 ### Heroku Deployment with GitHub Pages
+
+## Credits
+- Code Institue, [TaskManager Lesson](https://github.com/Code-Institute-Solutions/TaskManager): For basic event Function
+- Ewan Lockwood, [The Book Stop](https://github.com/ewanlockwood/the-book-stop): For structure on how to impliment a login system.
+- Px Here, [Banner Image](https://pxhere.com/en/photo/1597775)
