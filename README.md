@@ -54,7 +54,8 @@ Randy has a very active American Stafford Terrier, Roscoe, that is accident. Ran
 - A list of last and upcoming visits to the vet.
 - Roscoe's proof of vaccination and schedule
 
-## Features in Paw Purfect Planner (BETA)
+## Features
+###Paw Purfect Planner (BETA)
 The site uses Materialize to enhance the site design by providing a responsive design, clean scrolling and nifty form features.
 #### Header Logo
 Resides at the top of every page in the navigation bar. The logo is linked to the home page for users not logged in and the user profile for logged in users as expected.
