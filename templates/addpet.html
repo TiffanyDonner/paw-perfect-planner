@@ -1,87 +1,93 @@
 {% extends 'layoutpage.html' %} {% block page %}
+
 <!-- Add Pet CONTAINER START -->
 <div class="add-pet container">
-    <div class="page-title row">
-        <h4>Add New Pet</h4>
-    </div>
-    <!-- Pet Options START -->
-    <div class="row">
-        <form action="{{ url_for('insert_pet') }}" method="POST" class="col s12">
-            <!-- Choose Catagory -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">assignment</i>
-                    <input id="pet_name" name="pet_name" type="text" />
-                    <label for="pet_name">Pet Name</label>
-                </div>
-            </div>
-            <!-- Pet Type (Dog or Cat) -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">poll</i>
-                    <select id="pet_type" name="pet_type">
-                        <option value="" disabled selected>Choose Pet Type</option>
+	<div class="page-title row">
+		<h4>Add New Pet</h4>
+	</div>
+	<!-- Pet Options START -->
+	<div class="row">
+		<form action="{{ url_for('insert_pet') }}" method="POST" class="col s12">
+			<!-- Choose Catagory -->
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">assignment</i>
+					<input id="pet_name" name="pet_name" type="text" />
+					<label for="pet_name">Pet Name</label>
+				</div>
+			</div>
+			<!-- Pet Type (Dog or Cat) -->
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">poll</i>
+					<select id="pet_type" name="pet_type">
+						<option value="" disabled selected>Choose Pet Type</option>
                         {% for typ in type %}
-                        <option value="{{typ.pet_type}}">{{typ.pet_type}}</option>
+                        
+						<option value="{{typ.pet_type}}">{{typ.pet_type}}</option>
                         {% endfor %}
-                    </select>
-                    <label>Pet Type</label>
-                </div>
-            </div>
-            <!-- Pet Gender -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">poll</i>
-                    <select id="pet_gender" name="pet_gender">
-                        <option value="" disabled selected>Choose Gender</option>
+                    
+					</select>
+					<label>Pet Type</label>
+				</div>
+			</div>
+			<!-- Pet Gender -->
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">poll</i>
+					<select id="pet_gender" name="pet_gender">
+						<option value="" disabled selected>Choose Gender</option>
                         {% for gen in gender %}
-                        <option value="{{gen.gender_type}}">{{gen.gender_type}}</option>
+                        
+						<option value="{{gen.gender_type}}">{{gen.gender_type}}</option>
                         {% endfor %}
-                    </select>
-                    <label>Gender</label>
-                </div>
-            </div>
-            <!-- Pet Breed -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">assignment</i>
-                    <input id="pet_breed" name="pet_breed" type="text" />
-                    <label for="pet_breed">Pet Breed</label>
-                </div>
-            </div>
-            <!-- Pet Birth Date -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">today</i>
-                    <input id="birth_date" name="birth_date" type="text" class="datepicker" />
-                    <label for="birth_date">Birth Date</label>
-                </div>
-            </div>
-            <!-- Pet Weight -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">assignment</i>
-                    <input id="pet_weight" name="pet_weight" type="text" />
-                    <label for="pet_weight">Weight</label>
-                </div>
-            </div>
-            <!-- Pet ID Number -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">assignment</i>
-                    <input id="pet_id_number" name="pet_id_number" type="text" />
-                    <label for="pet_id_number">ID Number</label>
-                </div>
-            </div>
-            <!-- Submit Button -->
-            <div class="row">
-                <button class="btn waves-effect waves-light" type="submit" name="action">
+                    
+					</select>
+					<label>Gender</label>
+				</div>
+			</div>
+			<!-- Pet Breed -->
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">assignment</i>
+					<input id="pet_breed" name="pet_breed" type="text" />
+					<label for="pet_breed">Pet Breed</label>
+				</div>
+			</div>
+			<!-- Pet Birth Date -->
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">today</i>
+					<input id="birth_date" name="birth_date" type="text" class="datepicker" />
+					<label for="birth_date">Birth Date</label>
+				</div>
+			</div>
+			<!-- Pet Weight -->
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">assignment</i>
+					<input id="pet_weight" name="pet_weight" type="text" />
+					<label for="pet_weight">Weight (kg/lbs)</label>
+				</div>
+			</div>
+			<!-- Pet ID Number -->
+			<div class="row">
+				<div class="input-field col s12">
+					<i class="material-icons prefix">assignment</i>
+					<input id="pet_id_number" name="pet_id_number" type="text" />
+					<label for="pet_id_number">ID Number</label>
+				</div>
+			</div>
+			<!-- Submit Button -->
+			<div class="row">
+				<button class="btn waves-effect waves-light" type="submit" name="action">
                     Add Pet
-                    <i class="material-icons right">playlist_add</i>
-                </button>
-            </div>
-        </form>
-    </div>
+                    
+					<i class="material-icons right">playlist_add</i>
+				</button>
+			</div>
+		</form>
+	</div>
 </div>
 
 {% endblock %}
