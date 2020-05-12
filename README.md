@@ -1,12 +1,12 @@
-![Paw Purfect Site Header Image](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/readme/readme/header-readme.PNG)
+![Paw Purfect Site Header Image](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/readme/header-readme.PNG)
 # 🐾Paw Purfect Planner
 What did the Vet say the last time we were there? This is something we often say as pet owners. Paw Purfect Planner is a simple web application that gives you everything you need to maintain your pet records and events.
 ## Table of Contents
 
 1. [Demo](#Demo)
-2. [Project purpose](#Project-purpose)
+2. [Project Purpose](#Project-purpose)
 3. [UX](#ux)
-    - [User stories](#User-stories)
+    - [User Stories](#User-stories)
 4. [Features](#Features)    
 5. [Technology Used](#Technology-Used)
 6. [Testing](#Testing)
@@ -40,7 +40,7 @@ Wireframes presentation designed in Adobe XD. Click the green text/button or nex
 #### Surface
 Natural earth tones that reflex earth and sky.
 
-### User-stories
+### User Stories
 #### SOFIA AND BELLA
 Sofia wants to keep track of important information about her Ragdoll cat Bella. She wants to be able to access the information quickly and easily. She wants to receive 2 reminders when she needs to go to the veterinarian next and when to apply Bellas Flea and Tick Medication .
 Features she needs.
@@ -72,7 +72,7 @@ If the user feels they no longer need a record they have entered, they have the 
 #### Footer
 Risides at the bottom of each page to establish closure and to protect the business copyright.
 
-### Features left to impliment
+### Features Left To Impliment
 This is an ongoing project and will go fully live later in 2020. 
 #### Next Release 1.5:
 - About and Contact Page
@@ -85,7 +85,7 @@ This is an ongoing project and will go fully live later in 2020.
 - Ability to uplaod documents into an event.
 
 #### Future of 🐾Paw Purfect Planner
-
+-
 
 ## Technology-Used
 | Languages | Libraries | Tools | Hosting |
@@ -126,7 +126,7 @@ This is an ongoing project and will go fully live later in 2020.
 - User A, "I think I would like more features if I was going to use this exclusively for my pets. Rather than just using my google calendar..."
 - User B, "Sure, seems like a good idea. I am looking forward to see what gets added in the future."
 
-(Any suggestions given by users are added above in [Features left to impliment](#Features left to impliment))
+Any suggestions given by users are added above in [Features Left To Impliment](#Features-Left-To-Impliment)
 
 ### Devices Tested
 ✓ The site is accessible to everyone on all devices.
@@ -144,46 +144,56 @@ This is an ongoing project and will go fully live later in 2020.
     -iPhone 10
 
 ## DEPLOYMENT
-#### MongoDB Database Set-up
-1. Sign in to your [MongoDB](https://www.mongodb.com/) account.
+#### 1. MongoDB Database Set-up
+1. Sign in to your [MongoDB Account](https://www.mongodb.com/) account.
 2. Navigate to or create a project.
 3. [Create a Database](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/readme/database-testing.pdf)
 4. Add a collection to your database.
 5. Add Document to your collection.
 
-#### Create a new [repository](https://github.com/TiffanyDonner/paw-purfect-planner) in GitHub
-1. In the upper right corner use the + to bring down the menu. And select Repository.
-2. Select your account from the owner dropdown menu.
-3. Give your repository a name and optional description.
-4. Choose the repository's visibility and initialize this repository with a README.
-5. Click Create Repository
-#### Create a Flask Application
-
-
-#### Create a new [repository](https://github.com/TiffanyDonner/paw-purfect-planner). 
+#### 2. Create a new [repository](https://github.com/TiffanyDonner/paw-purfect-planner) in GitHub
 1. In the upper right corner use the + to bring down the menu. And select Repository.
 2. Select your account from the owner dropdown menu.
 3. Give your repository a name and optional description.
 4. Choose the repository's visibility and initialize this repository with a README.
 5. Click Create Repository
 
-#### Create Your Website
+#### 3. Create Your Website
 1. In GitHub navigate to your repository.
 2. Click on the green Gitpod button to open your development environment.
 3. Create a [template folder](https://github.com/TiffanyDonner/paw-purfect-planner/tree/master/templates) and add an index.html with what you want to be displayed on the main page of your site.
 4. Push your files and folders while updating git by adding files with commit messages to keep you organized through development.
 
-#### Deployment to GitHub Pages
-1. In GitHub, navigate to Settings. Within Settings, navigate to the Source section under Github Pages. 
-2. From the dropdown menu, selected master branch and selection will save automatically. 
-3. Git hub creates a [link](https://tiffanydonner.github.io/paw-purfect-planner/) to where the site is hosted/published.
+#### 4. Create an App in Heroku
+1. Sign in to your [Heroku Account](https://heroku.com/) and create a unique app.
+2. Navigate to Deploy and choose GitHub as your deployment method.
+3. Navigate to App connected to GitHub and connect your GitHub Repository.
+4. Then Enable Automatic Deploys.
+5. Now your Heroku app will update everytime you push GitHub (git add ., git commit -m "", git push)
 
-#### Updating
-1. Any updates that are committed and push to GitHub will be updated to GitHub Pages.
+#### 5. Create a Flask Application
+1. In the terminal install flask *pip3 install flask*
+2. Create a app.py file in the root directory.
+3. Create an instance of Flask in the app.py file *app = Flask(__name__)*
+4. Then do a test. You can find a sample on how to set-up a test app.py file [here](https://github.com/Code-Institute-Solutions/TaskManager/blob/master/01-PuttingTheBasicsInPlace/02-create_the_flask_application/app.py)
+5. Create a requirements file *pip3 freeze --local > requirements.txt*
+6. Create procfile using *echo web: python app.py > Procfile*
+7. Add, commit and push your changes to GitHub from you terminal and now when you view your app on Heroku you should be ab
+8. In Heroku navigate to Settings, Config Vars. Set your IP and PORT.
+9. Now when you Open App from Heroku you should see your test page.
 
-### Heroku Deployment with GitHub Pages
+#### Connect Flask To MongoDB Atlas
+1. Install library in the terminal *pip3 install flask pymongo*
+2. Install new connection string in the terminal *pip3 install dnspython*
+3. Add additional imports to app.py
+4. To set up your MongoDB connection during testing use these [instructions](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/readme/environment-variables-gitpod.pdf) to keep your database enviroment varibles secret.
+4. Create Templates folder and initial html file, events.html and start buildingyour website.
+
+Last... Remember to add your MongoDB enviroment variables to Heroku to complete the deployment.
 
 ## Credits
 - Code Institue, [TaskManager Lesson](https://github.com/Code-Institute-Solutions/TaskManager): For basic event Function
+- My mentor Brian Macharia, Code Institute Tutors and Slack Group!
+- Creating a User Login System Using Python, Flask and MongoDB [Pretty Printed](https://www.youtube.com/watch?v=vVx1737auSE)
 - Ewan Lockwood, [The Book Stop](https://github.com/ewanlockwood/the-book-stop): For structure on how to impliment a login system.
 - Px Here, [Banner Image](https://pxhere.com/en/photo/1597775)
