@@ -1,6 +1,7 @@
 ![Paw Purfect Site Header Image](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/readme/header-readme.PNG)
 # 🐾Paw Purfect Planner
-What did the Vet say the last time we were there? This is something we often say as pet owners. Paw Purfect Planner is a simple web application that gives you everything you need to maintain your pet records and events.
+What did the Vet say the last time we were there? When was the last time Rocco had his shots? This is something we often say as pet owners. Paw Purfect Planner is a simple web application that gives you everything you need to maintain your pet records and events.
+
 ## Table of Contents
 
 1. [Demo](#Demo)
@@ -10,13 +11,13 @@ What did the Vet say the last time we were there? This is something we often say
 4. [Features](#Features)    
 5. [Technology Used](#Technology-Used)
 6. [Testing](#Testing)
-7. [Credits](#Credits)
-8. [DEPLOYMENT](#DEPLOYMENT)
+7. [Deployment](#Deployment)
+8. [Credits](#Credits)
 
 ## Demo
 A live demo of the website can be found [here](https://paw-purfect-planner.herokuapp.com/).
 
-## Project-purpose
+## Project Purpose
 To build a CRUD (Create, Read, Update, Delete) application using HTML, CSS, JavaScript, Python+Flask, and MongoDB.
 
 ## UX
@@ -26,7 +27,7 @@ To build a CRUD (Create, Read, Update, Delete) application using HTML, CSS, Java
 - Busy, so keeping all their pet information in one place and easy to access is important.
 
 #### Stradegy
-The stradegy of the design was to give the user a clean and easy way to access their pets information all from one user profile.
+The stradegy of the design was to give the user a clean and easy way to access all their pets information all from one user profile.
 
 #### Scope
 The vistors of this site will get quick acces to an overview of there pets important information. They will be able to schedule important upcoming appointments. Also giving them a view into their pets history.
@@ -75,19 +76,25 @@ Risides at the bottom of each page to establish closure and to protect the busin
 ### Features Left To Impliment
 This is an ongoing project and will go fully live later in 2020. 
 #### Next Release 1.5:
+- Create a forgot password link for the user.
+- Log the user out completely after a time period.
 - About and Contact Page
-- Add the appbility to add a pet photo.
 - Add a search feature to events with most recent event first in list.
-- Mark an event as done and add it to a history page.
-- Create popup to add webpage to home screen.
+- Mark an event as done and create a history page that is will be added to.
 - Add the ability to add contacts.
 - Add email to the register form.
+- Create a user profile where the user can update account information such as email and change password.
 - Ability to uplaod documents into an event.
+- Current setup allows anyone to edit pets/events that do not belong to them. Need to check whether the event or pet belongs to session['username'] first before updating. If not, redirect them to userprofile.
 
-#### Future of 🐾Paw Purfect Planner
--
+#### Future Updates
+- Add the ability to add a pet photo to profile page.
+- Create a button to add Logo with hyperlink to website to home screen.
+- Add the ability to connect an event to a pet.
+- Connect contacts' address to google maps.
+- Connect the contacts phone number to a dailer.
 
-## Technology-Used
+## Technology Used
 | Languages | Libraries | Tools | Hosting |
 |----------------------------------|----------------------------------|----------------------------------|----------------------------------|
 | [HTML](https://www.w3.org/html/) | [Materialize](https://materializecss.com/) | MongoDB | Github
@@ -143,7 +150,7 @@ Any suggestions given by users are added above in [Features Left To Impliment](#
     -iPhone 11
     -iPhone 10
 
-## DEPLOYMENT
+## Deployment
 #### 1. MongoDB Database Set-up
 1. Sign in to your [MongoDB Account](https://www.mongodb.com/) account.
 2. Navigate to or create a project.
