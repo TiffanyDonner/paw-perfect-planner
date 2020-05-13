@@ -190,14 +190,16 @@ Any suggestions given by users have been added above in [Features Left To Implem
 8. In Heroku navigate to Settings, Config Vars. Set your IP and PORT.
 9. Now when you Open App from Heroku you should see your test page.
 
-#### Connect Flask To MongoDB Atlas
+#### 6. Connect Flask To MongoDB Atlas
 1. Install library in the terminal *pip3 install flask pymongo*
 2. Install new connection string in the terminal *pip3 install dnspython*
 3. Add additional imports to app.py
 4. To set up your MongoDB connection during testing use these [instructions](https://github.com/TiffanyDonner/paw-purfect-planner/blob/master/static/readme/environment-variables-gitpod.pdf) to keep your database environment variables secret.
 4. Create Templates folder and initial html file, events.html, and start building your website.
 
-Last... Remember to add your MongoDB environment variables to Heroku to complete the deployment.
+#### 7. Last... Remember to add your MongoDB environment variables to Heroku to complete the deployment.
+1. In Heroku navigate to Settings, Config Vars.
+2. Set your MONGO_URI and environment variables.
 
 ## Credits
 - Code Institue, [TaskManager Lesson](https://github.com/Code-Institute-Solutions/TaskManager): For basic event Function
